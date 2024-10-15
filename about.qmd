@@ -5,32 +5,11 @@ format:
     code-fold: true
 ---
 
-<!-- # ```{r, include=FALSE} -->
-<!-- # knitr::opts_chunk$set( -->
-<!-- #   echo = TRUE -->
-<!-- # ) -->
-<!-- # library("KMsurv"); library(latex2exp) -->
-<!-- # theme_set(theme_minimal()); theme_update(panel.grid.minor = element_blank()) -->
-<!-- # ``` -->
-
-
-<!-- Parrallel coordinate plot -->
-<!-- ```{r} -->
-<!-- iris |> -->
-<!--   pivot_longer(cols = 1:4, -->
-<!--                names_to = "Variable", -->
-<!--                values_to = "Value") |> -->
-<!--   mutate(id = rep(1:150, each = 4)) |> -->
-<!--   ggplot() + -->
-<!--   geom_line(aes(Variable, Value, color = Species, group = id)) -->
-<!-- ``` -->
-
-
 ## Education
 
 PhD Statistical Science, [Baylor University, ](https://www.baylor.edu/) \quad (2023 - 2027)
 
-M.S Statistics, [Baylor University, ](https://www.baylor.edu/) \quad (December 2024(Expected))
+M.S Statistics, [Baylor University, ](https://www.baylor.edu/) \quad December 2024 (Expected)
 
 M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) May, 2023
 
@@ -45,7 +24,7 @@ MIS Analytics Intern at [ Premier BankCard, Sioux Falls,](https://careers.firstp
 
 ## Experience
 
-Here are are technologies are have used in the course of education and professional development:
+Here are technologies are have used in the course of education and professional development:
 
 
 :::: {.columns}

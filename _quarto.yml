@@ -11,8 +11,6 @@ website:
         text: About
       - href: /media/TheoAnimResume.pdf
         text: Resume
-      - href: News.qmd
-        text: Highlights
 format:
   html:
     theme: zephry
