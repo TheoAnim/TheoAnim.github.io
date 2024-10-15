@@ -15,6 +15,10 @@ about:
       href: mailto:theophilus.animbediako@gmail.com
 ---
 
+
+This page is still under construction!
+
+
 You are welcome! I am second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I earned my master's in Ms Mathematics-Statistics at South Dakota State
 University where I the opportunity to build a strong foundation in Linear Algebra, ML(Clustering and Classification Algorithms) and Probability Measure.
 
@@ -27,6 +31,7 @@ PhD Statistical Science at Baylor, is where I continue to learn statistical meth
 Outside the classroom, I do spend time speaking to my family and taking nature photographs along the Brazos river.
 
 Learn about my professional and academic journey here on this page!
+
 
 
 
