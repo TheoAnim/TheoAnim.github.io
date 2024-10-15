@@ -1,8 +1,65 @@
 ---
-title: "About"
+title: ""
+format: 
+  html: 
+    code-fold: true
 ---
 
-About this site
+<!-- # ```{r, include=FALSE} -->
+<!-- # knitr::opts_chunk$set( -->
+<!-- #   echo = TRUE -->
+<!-- # ) -->
+<!-- # library("KMsurv"); library(latex2exp) -->
+<!-- # theme_set(theme_minimal()); theme_update(panel.grid.minor = element_blank()) -->
+<!-- # ``` -->
 
 
-Nothing here
+<!-- Parrallel coordinate plot -->
+<!-- ```{r} -->
+<!-- iris |> -->
+<!--   pivot_longer(cols = 1:4, -->
+<!--                names_to = "Variable", -->
+<!--                values_to = "Value") |> -->
+<!--   mutate(id = rep(1:150, each = 4)) |> -->
+<!--   ggplot() + -->
+<!--   geom_line(aes(Variable, Value, color = Species, group = id)) -->
+<!-- ``` -->
+
+
+## Education
+
+PhD Statistical Science, [Baylor University, ](https://www.baylor.edu/) \quad (2023 - 2027)
+
+M.S Statistics, [Baylor University, ](https://www.baylor.edu/) \quad (December 2024(Expected))
+
+M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) May, 2023
+
+Bachelor of Education(Mathematics) - [University of Cape Coast,](https://ucc.edu.gh/) 2020
+
+## Work Experience
+
+Graduate Assistant at [Statistical Consulting Center, ](https://statistics.artsandsciences.baylor.edu/about/visit-information) June 2024 - Present
+
+MIS Analytics Intern at [ Premier BankCard, Sioux Falls,](https://careers.firstpremier.com/); June 2022 - August 2022
+
+
+## Experience
+
+Here are are technologies are have used in the course of education and professional development:
+
+
+:::: {.columns}
+::: {.column width="25%"}
+- R/RStudio(R markdown & Quarto)
+- Python
+- SQL
+::::
+::: {.column width="25%"}
+- Git/Github
+- Docker
+- PowerBI
+::: 
+::::
+
+\textcolor{red}{Sleep}
+

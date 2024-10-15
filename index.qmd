@@ -1,7 +1,37 @@
 ---
-title: "animbediako.github.io"
+title: "Theophilus Anim Bediako"
+toc: false
+about: 
+  template: jolla
+  image: media/theo.jpg
+  image-shape: round
+  image-width: 17em
+  links: 
+    - icon: linkedin
+      href: https://www.linkedin.com/in/theophilus-anim-bediako
+    - icon: github
+      href: https://github.com/TheoAnim?tab=repositories
+    - icon: envelope
+      href: mailto:theophilus.animbediako@gmail.com
 ---
 
-This is a Quarto website.
+You are welcome! I am second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I earned my master's in Ms Mathematics-Statistics at South Dakota State
+University where I the opportunity to build a strong foundation in Linear Algebra, ML(Clustering and Classification Algorithms) and Probability Measure.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Linear Algebra which serves as the foundation for Machine Learning and Artificial Intelligence(AI). Studying Linear Algebra at the Master's level. With that, I believe I am well-prepared to take on challenging projects in Statistics, Machine Learning and Artificial Intelligence.
+
+
+PhD Statistical Science at Baylor, is where I continue to learn statistical methods for Bayesian Inference , Survival Analysis, building predictive models.  
+
+
+Outside the classroom, I do spend time speaking to my family and taking nature photographs along the Brazos river.
+
+Learn about my professional and academic journey here on this page!
+
+
+
+
+
+
+
+
