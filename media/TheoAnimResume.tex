@@ -1,0 +1,349 @@
+%-------------------------
+% Resume in Latex
+% Author : Theophilus Anim Bediako
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+%\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks = true,
+linkcolor = red,
+urlcolor  = blue,
+citecolor = blue,
+anchorcolor = red]{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+%\usepackage[utf8]{inputenc}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{.8in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large\color{MidnightBlue}\bfseries
+}{}{0em}{}[\titlerule\vspace{-6pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item[]\normalsize{
+    {#1}{ #2 \vspace{-2pt}}
+  }
+}
+
+% Just in case someone needs a heading that does not need to be in a list
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4}\vspace{10pt}]
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\TheoRSubHead}[6]{
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textit{\small#1} & \textit{\small #2}\\
+		\textit{\small#3} & \textit{\small #4}\\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{#2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingnobullet}[4]{
+	\vspace{-1pt}\item[]
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & \textbf{#2} \\
+		\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}c}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Define a new command for two-column bullet points with reduced line spacing
+\newcommand{\twocolumnbullets}[2]{
+	\noindent % Prevent indentation at the beginning of the environment
+	\begin{minipage}[t]{0.5\textwidth} % Begin the first column
+		\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=0pt, partopsep=0pt, parsep=0pt] % Adjust spacing here
+			#1 % Content of the first column
+		\end{itemize}
+	\end{minipage}%
+	\hfill % Add some space between the two columns
+	\begin{minipage}[t]{0.5\textwidth} % Begin the second column
+		\begin{itemize}[itemsep=0pt, topsep=0pt, partopsep=0pt, parsep=0pt] % Adjust spacing here
+			#2 % Content of the second column
+		\end{itemize}
+	\end{minipage}
+}
+
+
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%----------HEADING-----------------
+\begin{center}
+%	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l}
+	\textbf{\huge Theophilus Anim Bediako}\\
+%		\address{915 Speight Avenue, Waco, TX, 76706}\\
+	\begin{tabular}{c c c}
+			\faGlobe\enspace\href{https://theoanim.github.io/}{https://theophilus.animbediako.com}\quad \textbar%& Mobile : %\href{tel:+11234567890}{+1-123-456-7890} \\
+			&\; \faEnvelopeO\enspace \href{mailto:theophilus.animbediako@gmail.com}{theophilus.animbediako@gmail.com} \quad
+			&\textbar \quad \faLinkedinSquare\;  \href{https://www.linkedin.com/in/theophilus-anim-bediako-172093206/}{{linkedin.com}}\\
+	\end{tabular}
+\end{center}
+
+
+%\usepackage{import}
+%\name{Partha Pratim}{Chatterjee}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+%\address{5829 Hobart Street, Pittsburgh, PA 15213 }{}{}%
+
+%\makevctitle
+%
+%\begin{center}
+%	\begin{tabular}{ c c c c }
+%		\faGlobe\enspace mysite.me & \faEnvelopeO\enspace pchatter@andrew.cmu.edu & \faGithub\enspace yourgithub &  \faMobile\enspace 928-409-2740\\ 
+%	\end{tabular}
+%\end{center}
+
+  
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheadingnobullet
+{Baylor University}{Waco, Texas}
+{PhD in Statistics}{July 2023 -- 2027(Expected)}\vspace{-.1cm}
+\resumeSubheadingnobullet
+{Baylor University}{Waco, Texas}
+{MS Statistics}{December 2024(Expected)}\vspace{-.1cm}
+\resumeSubheadingnobullet
+{South Dakota State University}{Brookings, South Dakota}
+{MS Mathematics - Statistics}{Aug 2021 -- May 2023}\vspace{-.1cm}
+\resumeSubheadingnobullet
+{University of Cape Coast}{Cape Coast, Ghana}
+{Bachelor of Education(Mathematics)}{Aug. 2016 -- July 2020}\vspace{-.1cm}
+\resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------
+\section{Skills \& Competencies}
+\resumeSubHeadingListStart
+\item{
+	\textbf{Programming}{: R/RStudio(Rmarkdown, Quarto for document preparation), SQL, Python, SAS, PowerBI, basic experience with \textbf{\textit{zsh shells, html and css}}}\vspace{-8pt}
+}
+\item{\textbf{Git/Github, Docker} (Basic knowledge), \textbf{\LaTeX}}, \textbf{JAGS/Stan}\vspace{-8pt}
+\item{
+	\textbf{Non-technical skills:} {Strong analytical skills, effective communication skills, problem-solving, knowledge transfer-ability and responding appropriately to feedback}
+}\vspace{-8pt}
+\item{\textbf{Relevant Courses:} Survival Analysis, Bayesian Methods, Statistical Methods, Computational Statistics, Statistical Programming, Modern Applied Statistics, Regression Analysis, Advanced Linear Algebra}\vspace{-8pt}
+\resumeSubHeadingListEnd
+%-----------EXPERIENCE-----------------
+\section{Professional Experience}
+\resumeSubHeadingListStart
+ \resumeSubheading
+ 	{Student Consultant, Statistical Consulting Center}{Summer 2024 - Present}
+ 		{\textbf{Baylor University, Department of Statistical Science}}{\textbf{Waco, Texas}}
+ 		\resumeItemListStart
+ 		\resumeItem{Type here}{}
+ 		\resumeItem{Type here}{}
+ 		\resumeItem{Lead weekly supplemental instruction (SI) for Introduction to Statistical Methods}{}
+% 		\resumeItem{Implement student-centered approach to boost students confidence in communicating ideas}{}
+ 		\resumeItemListEnd
+ \resumeSubheading
+	{Graduate Teaching Assistant}{Fall 2023 - Spring 2024}
+	{\textbf{Baylor University, Department of Statistical Science}}{\textbf{Waco, Texas}}
+		\resumeItemListStart
+			\resumeItem{Lead weekly supplemental instruction (SI) for Introduction to Statistical Methods}{}
+			\resumeItem{Implement student-centered approach to boost students confidence in communicating ideas}{}
+		\resumeItemListEnd
+  \resumeSubheading
+     {South Dakota State University}{Brookings, South Dakota}
+      {\textbf{Graduate Teaching Assistant, SAS programming}}{Spring 2023}
+%    \TheoRSubHead
+%    {\textbf{Graduate Teaching Assistant, College Algebra; Mathematical Reasoning}}{Fall 2021 \& Fall 2022}
+%    {\textbf{Graduate Teaching Assistant, Introduction to Statistics}}{Spring 2022}
+%    {}{}
+      \resumeItemListStart
+      	\resumeItem{Offered personalized code reviews and feedback to students SAS projects}{}
+%        \resumeItem{Led discussion sections for recitation and supplemental labs}\\
+        \resumeItem{Graded students' tests, class activities, and online discussions}{}
+%        \resumeItem{Proctored Exams}{}
+      \resumeItemListEnd
+
+%% --------Multiple Positions Heading------------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+    \resumeSubheading
+      {MIS Analytics Intern (Risk Management Team)}{Summer 2022}
+      {\textbf{First Premier/Premier BankCard; Tools: SQL, Power BI, Excel}}{\textbf{Sioux Falls, SD}}
+	 \resumeItemListStart
+	  	\resumeItem{Comparative analysis of PREMIER best time to call accounts versus neustar's best time to call accounts of defaulting customers}{}
+	  	\resumeItem{Created a Power Bi dashboard showing call center employee attrition from 2018 to 2021}{}
+	  	\resumeItem{Collaborated with interns from other departments to investigate call center employee attrition, proposed solutions, and presented results to top-level management}{}
+%	  	\resumeItem{Reported suspicious credit card transactions to my supervisor for onward investigation}{}
+	 \resumeItemListEnd
+%	\resumeSubheading
+%	   {Teaching Assistant}{Fall 2020 - Summer 2021}
+%	   {\textbf{University of Cape Coast, Department of Mathematics}}{\textbf{Cape Coast, Ghana}}
+%	\resumeItemListStart
+%	\resumeItem{Reviewed concepts in Ordinary Differential Equations, Further Calculus with students during tutorial sessions}{}
+%	\resumeItem{Conducted personalized help sessions for students with difficulties grasping some of the concepts}{}
+%	\resumeItem{Graded Students' assignments and quizzes, and entered scores into Excel sheet}{}
+%	\resumeItemListEnd
+%   \resumeSubheading
+%		{Field Experience in Teaching Core and Elective Mathematics}{Fall 2019}
+%		{\textbf{Adisadel College}}{\textbf{Cape Coast, Ghana}}
+%	  \resumeItemListStart
+%		\resumeItem{Prepared lession plan, and delivered lesson to students during instructional hours}{}
+%		\resumeItem{Held help sessions for individual students during office hours}{}
+%		\resumeItem{Graded students's quizzes and assignments}{}
+%	  \resumeItemListEnd
+ \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\resumeSubHeadingListStart
+%\resumeSubItem{QuantSoftware Toolkit}
+\item Covariance-based clustering for classification \qquad \qquad \qquad \hspace{7cm} \href{https://github.com/TheoAnim/Clustering-and-Classification}{\textit{Link}}\vspace{-10pt}
+\item Tracing the source and brands of small arms propellants; Classification and inference techniques on unexploded improvised explosive devices(IEDs) and recovered particles of exploded improvised explosive devices(IEDs)\vspace{-10pt}
+\item Dry beans classification and price prediction\vspace{-10pt}
+\item Exploring different time series models using South Dakota temperature data \hspace{4cm} \href{https://github.com/TheoAnim/Time-Series-Project/blob/main/README.md}{\textit{Link}}\vspace{-10pt}
+\item Causal inference on the relationship between grain yield and seeding rate using data from 2017 - 2020\vspace{-10pt}
+\item Regularized regression versus ordinary least squares; Model comparisons using WHO's life expectancy data {\href{https://github.com/TheoAnim/-Modeling-Life-Expectancy}{\textit{Link}}}
+%    \resumeSubItem{Github Visualization}
+%      {Data Visualization of Git Log data using D3 to analyze project trends over time.}
+%    \resumeSubItem{Recommendation System}
+%      {Music and Movie recommender systems using collaborative filtering on public datasets.}
+%    \resumeSubItem{Mac Setup}
+%      {Book that gives step by step instructions on setting up developer environment on Mac OS.}
+\resumeSubHeadingListEnd
+
+
+%--------RESEARCH--------------------------
+%\section{Research Interest}
+%\resumeSubHeadingListStart
+%\item[] Computational Statistics(\textit{Clustering \& Classification)}, Insurance fraud detection, risk assessment, health actuary, uncertainty quantification
+%\resumeSubHeadingListEnd
+
+%%--------Conference----------------
+%\section{Conference \& Presentation}
+%\resumeSubHeadingListStart
+%%\item{
+%%	\textbf{Languages}{}
+%%	\hfill
+%%	\textbf{Technologies}{: Docker(Basic), Git/GitHub}
+%%}
+% \item International Indian Statistical Association (IISA) 2023 Annual Conference (Student Poster Presenter)\vspace{-.35cm}
+% \item South Dakota State University 2023 Data Science Symposium(Chaired the Methods in Statistics and Data Science Session)\vspace{-.35cm}
+% \item South Dakota State University 2022 Data Science Symposium(Attendee)%\vspace{-.37cm}
+%\resumeSubHeadingListEnd
+
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%% Awards and Achievements%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Awards \& Achievements}
+%\resumeSubHeadingListStart
+%%\item Summer 2023 Baylor University PhD transition fellowship\vspace{-6pt}
+%\item 2023 SDSU Data Science Symposium Students' Poster Presentation Competition- Second Place (Graduate Level)\vspace{-6pt}
+%\item SDSU Graduate School and American Statistical Association Travel Award for 2023 IISA Conference in Colorado School of Mines\vspace{-6pt}
+%\item GRASAG-USA  Certificate of Appreciation as a CV-SOP reviewer for prospective Ghanaian students seeking US graduate school admission\vspace{-6pt}
+%\item Asene Manso Akroso District Assembly Scholarship for Outstanding University Students - 2019/2020
+%\resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Membership and Professional Association%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Membership \& Professional Association}
+%\twocolumnbullets{
+%	\item American Statistical Association
+%%	\item Apostolic Professionals Network
+%}
+%{
+%	\item Society for Industrial and Applied Mathematics
+%	\item Royal Statistical Society
+%}
+
+
+%%%%%%%%%%%%%%%%%% Leadership and Voluntering Experience%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Leadership \& Volunteering Experience}
+%\resumeItemListStart
+%	\item Volunteered for both 2022 and 2023 South Dakota State University(SDSU) Data Science Symposium\vspace{-8pt}
+%	\item SDSU International Students Diplomat to welcome and provide guidance to new students in Spring 2022\vspace{-8pt}
+%	\item Long jump field official for PREMIER BankCard and the City of Sioux Falls, SD Track and Field Meets\vspace{-8pt}
+%		\item \textbf{Deputy Secretary}, The Apostolic Church Ghana Students and Associates, University of Cape Coast Chapter
+%\resumeItemListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%Interests and Hobbies%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Interests \& Hobbies}
+%  \resumeItemListStart
+%  	\resumeItem{Volunteering, Nature photography}{}
+%  \resumeItemListEnd
+%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%Referees%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Referees}
+%Avaliable upon request
+%-------------------------------------------
+\end{document}

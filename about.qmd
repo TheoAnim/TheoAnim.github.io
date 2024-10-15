@@ -61,5 +61,5 @@ Here are are technologies are have used in the course of education and professio
 ::: 
 ::::
 
-\textcolor{red}{Sleep}
+
 

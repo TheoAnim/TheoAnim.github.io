@@ -9,8 +9,8 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: /media/CV.pdf
-        text: CV
+      - href: /media/TheoAnimResume.pdf
+        text: Resume
       - href: News.qmd
         text: Highlights
 format:
