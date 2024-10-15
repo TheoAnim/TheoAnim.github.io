@@ -10,7 +10,7 @@ about:
     - icon: linkedin
       href: https://www.linkedin.com/in/theophilus-anim-bediako
     - icon: github
-      href: https://github.com/TheoAnim?tab=repositories
+      href: https://github.com/TheoAnim
     - icon: envelope
       href: mailto:theophilus.animbediako@gmail.com
 ---
