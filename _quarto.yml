@@ -2,7 +2,6 @@ project:
   type: website
   output-dir: docs
 website:
-  #title: "Theo Anim"
   navbar:
     left:
       - href: index.qmd
