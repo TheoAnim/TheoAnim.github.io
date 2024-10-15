@@ -19,8 +19,8 @@ about:
 This page is still under construction!
 
 
-You are welcome! I am second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I earned my master's in Ms Mathematics-Statistics at South Dakota State
-University where I the opportunity to build a strong foundation in Linear Algebra, ML(Clustering and Classification Algorithms) and Probability Measure.
+You are welcome! I am a second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I earned my master's in Ms Mathematics-Statistics at South Dakota State
+University where I had the opportunity to build a strong foundation in Linear Algebra, ML(Clustering and Classification Algorithms) and Probability Measure.
 
 Linear Algebra which serves as the foundation for Machine Learning and Artificial Intelligence(AI). Studying Linear Algebra at the Master's level. With that, I believe I am well-prepared to take on challenging projects in Statistics, Machine Learning and Artificial Intelligence.
 
