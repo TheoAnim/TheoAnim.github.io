@@ -5,7 +5,7 @@ format:
     code-fold: true
 ---
 
-## Education
+# Education
 
 PhD Statistical Science, [Baylor University, ](https://www.baylor.edu/) \quad (2023 - 2027)
 
@@ -15,14 +15,14 @@ M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstat
 
 Bachelor of Education(Mathematics) - [University of Cape Coast,](https://ucc.edu.gh/) 2020
 
-## Work Experience
+# Work Experience
 
 Graduate Assistant at [Statistical Consulting Center, ](https://statistics.artsandsciences.baylor.edu/about/visit-information) June 2024 - Present
 
 MIS Analytics Intern at [ Premier BankCard, Sioux Falls,](https://careers.firstpremier.com/); June 2022 - August 2022
 
 
-## Skills
+# Skills
 
 Here are technologies I have used in the course of my education and professional development:
 
