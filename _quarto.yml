@@ -10,6 +10,9 @@ website:
         text: About
       - href: /media/TheoAnimResume.pdf
         text: Resume
+      - href: blog.qmd
+        text: Blog
+        
 format:
   html:
     theme: zephry
