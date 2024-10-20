@@ -15,7 +15,9 @@ about:
       href: mailto:theophilus.animbediako@gmail.com
 ---
 
-You are welcome! I am a second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I graduated with a master's degree in Mathematics-Statistics from [South Dakota State University](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) where I had the opportunity to build a strong foundation in Linear Algebra, Machine Learning(Clustering & Classification Algorithms) and Probability Theory. With this experience, I believe I am well-prepared to take on new and challenging projects in Statistics, Machine Learning and Artificial Intelligence.
+You are welcome! 
+
+I am a second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I graduated with a master's degree in Mathematics-Statistics from [South Dakota State University](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) where I had the opportunity to build a strong foundation in Linear Algebra, Machine Learning(Clustering & Classification Algorithms) and Probability Theory. With this experience, I believe I am well-prepared to take on new and challenging projects in Statistics, Machine Learning and Artificial Intelligence.
 
 
 At [Baylor](https://www.baylor.edu/), I continue to learn statistical methods for Bayesian Inference, Survival Analysis.  
