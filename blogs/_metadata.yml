@@ -1,0 +1,16 @@
+# options specified here will apply to all posts in this folder
+
+# freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: auto
+
+# Enable banner style title blocks
+title-block-banner: true
+
+# my author info
+author:
+  - name: Theophilus Anim Bediako
+    url: https://theoanim.github.io/
+    # orcid: 0000-0002-5300-3075
+    # affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB) & The National Center for Ecological Analysis and Synthesis
+    # affiliation-url: https://ucsb-meds.github.io/ 

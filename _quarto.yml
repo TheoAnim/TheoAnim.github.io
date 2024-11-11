@@ -1,8 +1,12 @@
 project:
   type: website
   output-dir: docs
+  
 website:
+  title: "Theo Anim"
+  site-url: https://theoanim.github.io/
   navbar:
+    title: false
     left:
       - href: index.qmd
         text: Home
@@ -10,9 +14,12 @@ website:
         text: About
       - href: /media/TheoAnimResume.pdf
         text: Resume
-      - href: blog.qmd
-        text: Blog
-        
+      - blogs.qmd
+  page-footer: 
+    background: light
+    left: © 2024 Theophilus Anim Bediako
+    right: Built with [![GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){width=20 height=20} GitHub](https://github.com/TheoAnim/theoanim.github.io/){target=_blank}, [![R Project](https://www.r-project.org/logo/Rlogo.png){width=20 height=20} R Project](https://www.r-project.org/about.html){target=_blank}, & [![Quarto](https://quarto.org/assets/images/logo-v2.png){width=20 height=20} Quarto](https://quarto.org/){target=_blank}.
+
 format:
   html:
     theme: zephry
