@@ -13,5 +13,8 @@
   },
   "blogs.qmd": {
     "blogs.html": "bd5420c3"
+  },
+  "blogs/Parallel Coordinate Plot/pcplot.qmd": {
+    "pcplot.html": "d10223fd"
   }
 }

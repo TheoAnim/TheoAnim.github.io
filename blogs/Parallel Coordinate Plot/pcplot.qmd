@@ -1,0 +1,38 @@
+---
+title: "pcplot"
+format: html
+---
+
+```{r}
+library(MASS)
+library(kknn)
+data(glass)
+```
+
+
+
+```{r}
+parcoord(iris[, 1:4], col = iris$Species)
+```
+
+
+
+```{r}
+parcoord(scale(glass[, -c(1, 11)]), col = glass$Type, var.label = TRUE)
+
+```
+
+
+
+```{r}
+mua <- 10
+mu0 <- 9
+
+a <- numeric(1000)
+replicate(1000, (t.test(rnorm(10, mean = mua)+rchisq(10, df = 9), mu = mu0)$p.value)<0.05) |> 
+  mean()
+
+
+a
+```
+
