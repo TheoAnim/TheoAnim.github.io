@@ -1,6 +1,7 @@
 ---
 title: "Standard Deviation and Standard Error"
 editor: visual
+categories: [Population, Sample, Standard Deviation, Standard Error, Parameter]
 #engine: knitr
 ---
 
@@ -39,7 +40,7 @@ Standard deviation, $\sigma$ and mean, $\mu$ are some of the common population p
   $$\sigma = \sqrt{\frac{1}{N}\sum(x_{i} - \mu)^2}, \quad \mu = \frac{1}{N}\sum x_{i} \; ; \; \; \text{N denotes the population size}$$
 Standard deviation indicates the variability in a population. In Statistics, parameters are unknown(Do you see why?). Not knowing the parameters for any given population is not the end of the road. With a sample, we can estimate what the population mean and standard deviation are. Thus, sample mean, $\bar{X}$ and sample standard deviation, $\hat{\sigma}$ estimate the unknown mean and standard deviation of a population. It is common to refer to any of these estimates as a statistic. Can you think of any other statistic?
 $$\bar{X} = \frac{1}{n}\sum x_{i}\; \; , \;\quad \hat{\sigma} = \sqrt{\frac{1}{n - 1}\sum(x_{i} - \bar{x})^{2}} \;,  \; \text{where n is the sample size}$$
-It is the case that different samples of the same size from the sample population give "different" results. This is known as **sampling variability**().
+It is the case that different samples of the same size from the sample population give "different" results. This is known as **sampling variability**.
 
 Let's assume the ages of the freshmen come from a normally distributed population, $N(\mu = 10, \; \sigma = 4)$. Under the assumption of known parameters, we can sample from the population as follows:
 

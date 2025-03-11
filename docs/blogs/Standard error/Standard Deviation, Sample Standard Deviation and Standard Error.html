@@ -176,7 +176,14 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">Standard Deviation and Standard Error</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Population</div>
+                <div class="quarto-category">Sample</div>
+                <div class="quarto-category">Standard Deviation</div>
+                <div class="quarto-category">Standard Error</div>
+                <div class="quarto-category">Parameter</div>
+              </div>
+                  </div>
   </div>
     
   <div class="quarto-title-meta-author column-page-left">
@@ -256,7 +263,7 @@ window.Quarto = {
 <section id="standard-deviation-and-sample-standard-deviation" class="level1 justify">
 <h1>Standard Deviation and Sample Standard Deviation</h1>
 <p>Standard deviation, <span class="math inline">\(\sigma\)</span> and mean, <span class="math inline">\(\mu\)</span> are some of the common population parameters with the following formulae:</p>
-<p><span class="math display">\[\sigma = \sqrt{\frac{1}{N}\sum(x_{i} - \mu)^2}, \quad \mu = \frac{1}{N}\sum x_{i} \; ; \; \; \text{N denotes the population size}\]</span> Standard deviation indicates the variability in a population. In Statistics, parameters are unknown(Do you see why?). Not knowing the parameters for any given population is not the end of the road. With a sample, we can estimate what the population mean and standard deviation are. Thus, sample mean, <span class="math inline">\(\bar{X}\)</span> and sample standard deviation, <span class="math inline">\(\hat{\sigma}\)</span> estimate the unknown mean and standard deviation of a population. It is common to refer to any of these estimates as a statistic. Can you think of any other statistic? <span class="math display">\[\bar{X} = \frac{1}{n}\sum x_{i}\; \; , \;\quad \hat{\sigma} = \sqrt{\frac{1}{n - 1}\sum(x_{i} - \bar{x})^{2}} \;,  \; \text{where n is the sample size}\]</span> It is the case that different samples of the same size from the sample population give “different” results. This is known as <strong>sampling variability</strong>().</p>
+<p><span class="math display">\[\sigma = \sqrt{\frac{1}{N}\sum(x_{i} - \mu)^2}, \quad \mu = \frac{1}{N}\sum x_{i} \; ; \; \; \text{N denotes the population size}\]</span> Standard deviation indicates the variability in a population. In Statistics, parameters are unknown(Do you see why?). Not knowing the parameters for any given population is not the end of the road. With a sample, we can estimate what the population mean and standard deviation are. Thus, sample mean, <span class="math inline">\(\bar{X}\)</span> and sample standard deviation, <span class="math inline">\(\hat{\sigma}\)</span> estimate the unknown mean and standard deviation of a population. It is common to refer to any of these estimates as a statistic. Can you think of any other statistic? <span class="math display">\[\bar{X} = \frac{1}{n}\sum x_{i}\; \; , \;\quad \hat{\sigma} = \sqrt{\frac{1}{n - 1}\sum(x_{i} - \bar{x})^{2}} \;,  \; \text{where n is the sample size}\]</span> It is the case that different samples of the same size from the sample population give “different” results. This is known as <strong>sampling variability</strong>.</p>
 <p>Let’s assume the ages of the freshmen come from a normally distributed population, <span class="math inline">\(N(\mu = 10, \; \sigma = 4)\)</span>. Under the assumption of known parameters, we can sample from the population as follows:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
@@ -727,7 +734,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://github.com/TheoAnim/theoanim.github.io/" target="_blank"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20" height="20" alt="GitHub"></a>, <a href="https://www.r-project.org/about.html" target="_blank"><img src="https://www.r-project.org/logo/Rlogo.png" width="20" height="20" alt="R"></a>, <a href="https://quarto.org/" target="_blank"><img src="https://quarto.org/assets/images/logo-v2.png" width="20" height="20" alt="Quarto"></a>.</p>
+<p>Built with <a href="https://github.com/TheoAnim/theoanim.github.io/" target="_blank"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20" height="20" alt="GitHub"></a>, <a href="https://www.r-project.org/about.html" target="_blank"><img src="https://www.r-project.org/logo/Rlogo.png" width="20" height="20" alt="R"></a>, <a href="https://quarto.org/" target="_blank"><img src="https://quarto.org/assets/images/logo-v2.png" width="20" height="20" alt="Quarto"></a></p>
 </div>
   </div>
 </footer>
