@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-subtitle: "Coming soon"
+#subtitle: "Coming soon"
 listing:
   contents: blogs
   sort: "date desc"

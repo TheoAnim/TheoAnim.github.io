@@ -16,5 +16,8 @@
   },
   "blogs/Parallel Coordinate Plot/pcplot.qmd": {
     "pcplot.html": "d10223fd"
+  },
+  "blogs/Standard error/Standard Deviation, Sample Standard Deviation and Standard Error.qmd": {
+    "Standard Deviation, Sample Standard Deviation and Standard Error.html": "17e1d9ff"
   }
 }
