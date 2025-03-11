@@ -62,27 +62,29 @@ $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{\hat{\sigma}}{\sqrt{n}}$$
 Do you recall why we are replacing $\sigma$ with $\hat{\sigma}$?
 
 
-The following code helps demonstrate the differences.
+The following R code helps demonstrate the differences.
 ```{r}
 set.seed(5)
 
 #sample sizes
 n <- seq(2, 2000, by = 10)
 
-#compute ssd for each n
+#compute sample sd for a random sample of size n
 SSD <- map_dbl(n, \(n) sd(rnorm(n, 10, 4)))
 
 #function for SE of the mean statistic
-SSE <- function(n) sd(rnorm(n, 10, 4))/sqrt(n)
+SSE <- function(n)
+  sd(rnorm(n, 10, 4)) / sqrt(n)
 
 ggplot() +
-  geom_function(fun = SSE, aes(color = "SSE"))+
-  geom_line(data = tibble(n, SSD), mapping = aes(n, SSD, color = "SSD"))+
-  geom_hline(aes(yintercept = 4, color = "SD"))+
-  geom_hline(yintercept = 0)+
-  xlim(2, max(n))+
-  scale_color_manual(name = "", 
-                     values = c("SSE" = "blue", "SSD" = "red", "SD" = "darkgreen"))+
+  geom_function(fun = SSE, aes(color = "SSE"), linewidth = .9) +
+  geom_line(data = tibble(n, SSD), mapping = aes(n, SSD, color = "SSD"), linewidth = .9
+  ) +
+  geom_hline(aes(yintercept = 4, color = "SD"), linewidth = .9) +
+  geom_hline(yintercept = 0, linetype = 2, linewidth = .9, color  = "darkgreen") +
+  scale_color_manual(name = "",
+                     values = c("SSE" = "blue","SSD" = "red","SD" = "black"))+
+  xlim(2, max(n)) +
   labs(y = "SD/SSD/SE")
 ```
 
