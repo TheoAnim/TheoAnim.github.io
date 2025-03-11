@@ -8,7 +8,8 @@ editor: visual
 knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
-  fig.align = "center"
+  fig.align = "center",
+  comment = ""
 )
 ```
 
@@ -73,17 +74,17 @@ n <- seq(2, 2000, by = 10)
 SSD <- map_dbl(n, \(n) sd(rnorm(n, 10, 4)))
 
 #function for SE of the mean statistic
-SSE <- function(n)
+SE <- function(n)
   sd(rnorm(n, 10, 4)) / sqrt(n)
 
 ggplot() +
-  geom_function(fun = SSE, aes(color = "SSE"), linewidth = .9) +
+  geom_function(fun = SSE, aes(color = "SE"), linewidth = .9) +
   geom_line(data = tibble(n, SSD), mapping = aes(n, SSD, color = "SSD"), linewidth = .9
   ) +
   geom_hline(aes(yintercept = 4, color = "SD"), linewidth = .9) +
   geom_hline(yintercept = 0, linetype = 2, linewidth = .9, color  = "darkgreen") +
   scale_color_manual(name = "",
-                     values = c("SSE" = "blue","SSD" = "red","SD" = "black"))+
+                     values = c("SE" = "blue","SSD" = "red","SD" = "black"))+
   xlim(2, max(n)) +
   labs(y = "SD/SSD/SE")
 ```
