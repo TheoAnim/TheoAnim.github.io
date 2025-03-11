@@ -44,7 +44,7 @@ Bachelor of Education(Mathematics) - [University of Cape Coast, ](https://ucc.ed
 ::: {.justify}
 # Research Interest
 
-- Bayesian Statistics
+- Bayesian Statistics 
 - Statistical Genomics and Bioinformatics
 - Machine Learning
 :::
