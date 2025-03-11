@@ -68,7 +68,7 @@ The following R code helps demonstrate the differences.
 set.seed(5)
 
 #sample sizes
-n <- seq(2, 2000, by = 10)
+n <- seq(2, 1000, by = 2)
 
 #compute sample sd for a random sample of size n
 SSD <- map_dbl(n, \(n) sd(rnorm(n, 10, 4)))
