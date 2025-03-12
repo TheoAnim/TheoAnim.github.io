@@ -38,7 +38,7 @@ Let's move away from the initial digression. I believe the second paragraph sets
 Standard deviation, $\sigma$ and mean, $\mu$ are some of the common population parameters with the following formulae:
 
   $$\sigma = \sqrt{\frac{1}{N}\sum(x_{i} - \mu)^2}, \quad \mu = \frac{1}{N}\sum x_{i} \; ; \; \; \text{N denotes the population size}$$
-Standard deviation indicates the variability in a population. In Statistics, parameters are unknown(Do you see why?). Not knowing the parameters for any given population is not the end of the road. With a sample, we can estimate what the population mean and standard deviation are. Thus, sample mean, $\bar{X}$ and sample standard deviation, $\hat{\sigma}$ estimate the unknown mean and standard deviation of a population. It is common to refer to any of these estimates as a statistic. Can you think of any other statistic?
+Standard deviation indicates the variability in a population. In Statistics, parameters are unknown(Do you see why?). Not knowing the parameters for any given population is not the end of the road. With a sample, we can estimate the population mean and standard deviation. Thus, sample mean, $\bar{X}$ and sample standard deviation, $\hat{\sigma}$ estimate the unknown mean and standard deviation of a population. It is common to refer to any of these estimates/estimators as a statistic. Can you think of any other statistic?
 $$\bar{X} = \frac{1}{n}\sum x_{i}\; \; , \;\quad \hat{\sigma} = \sqrt{\frac{1}{n - 1}\sum(x_{i} - \bar{x})^{2}} \;,  \; \text{where n is the sample size}$$
 It is the case that different samples of the same size from the sample population give "different" results. This is known as **sampling variability**.
 
@@ -53,7 +53,7 @@ purrr::map_dbl(list(sample1, sample2), mean)
 purrr::map_dbl(list(sample1, sample2), sd)
 ```
 
-Clearly, these two samples are not the same. Coming from the same population, they have the same mean and standard deviation yet their sample means and sample standard deviations are different. This emphasizes the idea of sample variability mentioned earlier.
+Clearly, these two samples are not the same. Coming from the **same population**, they have the same mean and standard deviation yet their sample means and sample standard deviations are different. This emphasizes the idea of **sampling variability** mentioned earlier.
 :::
 
 ::: {.justify}
@@ -61,14 +61,14 @@ Clearly, these two samples are not the same. Coming from the same population, th
 
 Due to the variability in the estimates, we need to figure out how to quantify the variations. Standard error is one way to do that. Standard error indicates the reliability of a statistic. It is easier to think of a standard error(SE) as the **standard deviation of a statistic**. Here, we demonstrate the distinction using the sample mean. For a sample mean, SE is denoted as
 $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{\hat{\sigma}}{\sqrt{n}}$$
-Do you recall why we are replacing $\sigma$ with $\hat{\sigma}$?
+Do you recall why we need to replace $\sigma$ with $\hat{\sigma}$?
 
 
 The following R code helps demonstrate the differences.
 ```{r}
 set.seed(5)
 
-#sample sizes
+#different sample sizes
 n <- seq(2, 1000, by = 2)
 
 #compute sample sd for a random sample of size n
@@ -90,14 +90,15 @@ ggplot() +
   labs(y = "SD/SSD/SE")
 ```
 
-The standard deviation remains the same regardless of the sample size. The sample standard deviation is approximately the same as the standard deviation for a large sample size. Standard error of an estimate will always decrease as the sample size increases. Theoretically, standard error will always be less than or equal to the standard deviation(When does the equality happen?). It is important to note that while a standard error continues to decrease, it is never zero. In fact, beyond a certain sample size, the rate of decrease is negligible.
+The standard deviation remains the same regardless of the sample size. The sample standard deviation is approximately the same as the standard deviation for a large sample size. Standard error of an estimate decreases as the sample size increases. Theoretically, standard error is always be less than or equal to the standard deviation(When does the equality happen?). It is important to note that while a standard error continues to decrease, it is never zero. In fact, beyond a certain sample size, the rate of decrease is negligible.
 :::
 
 ::: {.justify}
 
 # Conclusion
 
-In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use the sample standard deviation to estimate the standard deviation and as sample size increases, these two are approximately the same. Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. The standard error of any statistic is always less than or equal to the standard deviation and as the sample size increases, the standard error decreases; indicating less variability in the statistic.
+In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use sample standard deviation to estimate the population standard deviation and as sample size increases, these two are approximately the same. Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. From the same population, the standard error of any statistic is less than or equal to the standard deviation. As the sample size increases, the standard error decreases; indicating less variability in the statistic.
+
 :::
 
 
