@@ -67,7 +67,6 @@ Do you recall why we need to replace $\sigma$ with $\hat{\sigma}$?
 The following R code helps demonstrate the differences.
 ```{r}
 set.seed(1)
-
 #different sample sizes
 n <- seq(2, 1000, by = 2)
 
@@ -80,7 +79,7 @@ SSD <- map_dbl(samples, \(.x) sd(.x))
 #SE of mean of each sample
 SE <- map_dbl(samples, \(.x) sd(.x)/sqrt(length(.x)))
 
-ggplot() +
+g1 <- ggplot() +
   geom_line(data = tibble(n, SE), aes(n, SE, color = "SE"), linewidth = .9) +
   geom_line(data = tibble(n, SSD), aes(n, SSD, color = "SSD"), linewidth = .9
   ) +
@@ -89,7 +88,36 @@ ggplot() +
   scale_color_manual(name = "",
                      values = c("SE" = "blue","SSD" = "red","SD" = "black"))+
   xlim(2, max(n)) +
-  labs(y = "SD/SSD/SE")
+  labs(y = "SD/SSD/SE", title = "Normal Distribution")
+```
+
+```{r}
+set.seed(1)
+#simulate from gamma distribution with different sample sizes
+samples2 <- map(n, \(n) rgamma(n, shape = 2, rate = 100))
+
+#sample sd for each sample
+SSD <- map_dbl(samples2, \(.x) sd(.x))
+
+#SE of mean of each sample
+SE <- map_dbl(samples2, \(.x) sd(.x)/sqrt(length(.x)))
+
+g2 <- ggplot() +
+  geom_line(data = tibble(n, SE), aes(n, SE, color = "SE"), linewidth = .9) +
+  geom_line(data = tibble(n, SSD), aes(n, SSD, color = "SSD"), linewidth = .9
+  ) +
+  geom_hline(aes(yintercept = sqrt(2/100^2), color = "SD"), linewidth = .9) +
+  geom_hline(yintercept = 0, linetype = 2, linewidth = .9, color  = "darkgreen") +
+  scale_color_manual(name = "",
+                     values = c("SE" = "blue","SSD" = "red","SD" = "black"))+
+  xlim(2, max(n)) +
+  labs(y = "SD/SSD/SE", title = "Gamma Distribution")
+```
+
+
+```{r}
+library(patchwork) 
+g1+ g2
 ```
 
 The standard deviation remains the same regardless of the sample size. The sample standard deviation is approximately the same as the standard deviation for a large sample size. Standard error of an estimate decreases as the sample size increases. Theoretically, standard error is always be less than or equal to the standard deviation(When does the equality happen?). It is important to note that while a standard error continues to decrease, it is never zero. In fact, beyond a certain sample size, the rate of decrease is negligible.
