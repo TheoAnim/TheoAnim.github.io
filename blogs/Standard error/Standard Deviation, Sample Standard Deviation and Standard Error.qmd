@@ -66,21 +66,23 @@ Do you recall why we need to replace $\sigma$ with $\hat{\sigma}$?
 
 The following R code helps demonstrate the differences.
 ```{r}
-set.seed(5)
+set.seed(1)
 
 #different sample sizes
 n <- seq(2, 1000, by = 2)
 
-#compute sample sd for a random sample of size n
-SSD <- map_dbl(n, \(n) sd(rnorm(n, 10, 4)))
+#simulate from normal with different sample sizes
+samples <- map(n, \(n) rnorm(n, 10, 4))
 
-#function for SE of the mean statistic
-SE <- function(n)
-  sd(rnorm(n, 10, 4)) / sqrt(n)
+#sample sd for each sample
+SSD <- map_dbl(samples, \(.x) sd(.x))
+
+#SE of mean of each sample
+SE <- map_dbl(samples, \(.x) sd(.x)/sqrt(length(.x)))
 
 ggplot() +
-  geom_function(fun = SE, aes(color = "SE"), linewidth = .9) +
-  geom_line(data = tibble(n, SSD), mapping = aes(n, SSD, color = "SSD"), linewidth = .9
+  geom_line(data = tibble(n, SE), aes(n, SE, color = "SE"), linewidth = .9) +
+  geom_line(data = tibble(n, SSD), aes(n, SSD, color = "SSD"), linewidth = .9
   ) +
   geom_hline(aes(yintercept = 4, color = "SD"), linewidth = .9) +
   geom_hline(yintercept = 0, linetype = 2, linewidth = .9, color  = "darkgreen") +
