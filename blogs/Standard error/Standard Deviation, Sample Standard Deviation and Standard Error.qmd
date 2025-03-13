@@ -30,7 +30,7 @@ Standard error, sample standard deviation and (population) standard deviation ar
 
 Pardon me as I digress a little bit to lay some foundations. In an introductory statistics class, terms like population, parameter, sample are explained. Population describes a collection of all units of interest. A population is defined by a common feature.  Suppose we are interested in the ages of college freshmen on a university campus, if we are able to record all the ages of the freshmen then that becomes our population with the common feature being "college freshmen on the campus". Another important term is parameter, a numerical characteristic of a population. Realistically, it is expensive and time consuming to attempt to collect all information on a population. This leads us to the term "sample". A sample describes a subset of a population. Using the college freshmen example, does taking the ages of only History majors constitute a sample? Here, we use sample to mean random sample. Random in the sense that every student has an equal chance of being included in the sample. I clarify that focusing only on History majors is not a **random** sample(see Tamhane & Dunlop, 2000). A random sample will be **randomly** selecting 1000 college freshmen on the college campus.
 
-Let's move away from the initial digression. I believe the second paragraph sets the tone for this article which is intended to highlight the distinction among (population) standard deviation, sample standard deviation and standard error of the mean.
+Let's move away from the initial digression. I believe the second paragraph sets the tone for this article which is intended to highlight the distinction among (population) standard deviation, sample standard deviation and standard error of the sample mean of a distribution whose mean exits.
 :::
 
 ::: {.justify}
@@ -127,7 +127,7 @@ The standard deviation remains the same regardless of the sample size. The sampl
 
 # Conclusion
 
-In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use sample standard deviation to estimate the population standard deviation and as sample size increases, these two are approximately the same. Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. From the same population, the standard error of the mean is less than or equal to the standard deviation. As the sample size increases, the standard error of the mean decreases; indicating less variability in the statistic.
+In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use sample standard deviation to estimate the population standard deviation and as sample size increases, these two are approximately the same. Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. From the same population, the standard error of the sample mean whose population mean exists is less than or equal to the standard deviation. As the sample size increases, the standard error of the mean decreases; indicating less variability in the statistic.
 
 :::
 
