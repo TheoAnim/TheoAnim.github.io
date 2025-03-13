@@ -127,7 +127,7 @@ The standard deviation remains the same regardless of the sample size. The sampl
 
 # Conclusion
 
-In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use sample standard deviation to estimate the population standard deviation and as sample size increases, these two are approximately the same. Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. From the same population, the standard error of the sample mean whose population mean exists is less than or equal to the standard deviation. As the sample size increases, the standard error of the mean decreases; indicating less variability in the statistic.
+In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use sample standard deviation to estimate the population standard deviation and as sample size increases, these two are approximately the same. Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. From the same population, the standard error of the sample mean whose population with finite mean is less than or equal to the standard deviation. As the sample size increases, the standard error of the mean decreases; indicating less variability in the statistic.
 
 :::
 
