@@ -125,7 +125,7 @@ The standard deviation remains the same regardless of the sample size. The sampl
 In this article, we have seen that population standard deviation is a parameter describing the variation in a population. We use sample standard deviation to estimate the population standard deviation and as sample size increases, the sample standard deviation stabilizes around the population standard deviation . Next time you hear "standard deviation", I hope you try to understand the context in which it is mentioned before thinking in terms of a population or a sample. For a **normal population**, the standard error of the sample mean is less than or equal to the standard deviation. As the sample size increases, the standard error of the mean decreases; indicating less variability in the statistic.
 
 
-[Bonus point: this distinction does not apply to all distributions. Repeat the code with a cauchy or pareto distribution]{style="color: red;"}
+[Bonus point: This distinction is applicable to distributions with finite mean and variance.]{style="color: red;"}
 :::
 
 
