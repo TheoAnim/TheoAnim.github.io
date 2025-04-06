@@ -1,6 +1,7 @@
 ---
 title: "Standard Deviation and Standard Error"
 editor: visual
+code-fold: true
 categories: [Population, Sample, Standard Deviation, Standard Error, Parameter]
 #engine: knitr
 ---
@@ -94,13 +95,13 @@ ggplot() +
 ```{r, include=FALSE}
 set.seed(1)
 #simulate from gamma distribution with different sample sizes
-samples2 <- map(n, \(n) rgamma(n, shape = 2, rate = 100))
+samples2 <- purrr::map(n, \(n) rgamma(n, shape = 2, rate = 100))
 
 #sample sd for each sample
-SSD <- map_dbl(samples2, \(.x) sd(.x))
+SSD <- purrr::map_dbl(samples2, \(.x) sd(.x))
 
 #SE of mean of each sample
-SE <- map_dbl(samples2, \(.x) sd(.x)/sqrt(length(.x)))
+SE <- purrr::map_dbl(samples2, \(.x) sd(.x)/sqrt(length(.x)))
 
 g2 <- ggplot() +
   geom_line(data = tibble(n, SE), aes(n, SE, color = "SE"), linewidth = .9) +

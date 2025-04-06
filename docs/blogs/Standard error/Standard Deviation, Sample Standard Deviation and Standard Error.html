@@ -206,7 +206,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">March 16, 2025</p>
+        <p class="date-modified">April 5, 2025</p>
       </div>
     </div>
       
@@ -257,20 +257,32 @@ window.Quarto = {
 <p><span class="math display">\[\sigma = \sqrt{\frac{1}{N}\sum(x_{i} - \mu)^2}, \quad \mu = \frac{1}{N}\sum x_{i} \; ; \; \; \text{N denotes the population size}\]</span> Standard deviation indicates the variability in a population. In Statistics, parameters are unknown(Do you see why?). Not knowing the parameters for any given population is not the end of the road. With a sample, we can estimate the population mean and standard deviation. Thus, sample mean, <span class="math inline">\(\bar{X}\)</span> and sample standard deviation, <span class="math inline">\(\hat{\sigma}\)</span> estimate the unknown mean and standard deviation of a population. It is common to refer to any of these estimates/estimators as a statistic. Can you think of any other statistic? <span class="math display">\[\bar{X} = \frac{1}{n}\sum x_{i}\; \; , \;\quad \hat{\sigma} = \sqrt{\frac{1}{n - 1}\sum(x_{i} - \bar{x})^{2}} \;,  \; \text{where n is the sample size}\]</span> It is the case that different samples of the same size from the sample population give “different” results. This is known as <strong>sampling variability</strong>.</p>
 <p>Let’s assume the ages of the freshmen come from a normally distributed population, <span class="math inline">\(N(\mu = 10, \; \sigma = 4)\)</span>. Under the assumption of known parameters, we take a <strong>random sample</strong> from the population as follows:</p>
 <div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(sample1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  7.494185 10.734573  6.657486 16.381123 11.318031</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(sample2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  6.718126 11.949716 12.953299 12.303125  8.778446</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(<span class="fu">list</span>(sample1, sample2), mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.51708 10.54054</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(<span class="fu">list</span>(sample1, sample2), sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.844158 2.675337</code></pre>
 </div>
@@ -282,6 +294,8 @@ window.Quarto = {
 <p>Due to the variability in the estimates, we need to figure out how to quantify the variations. Standard error is one way to do that. Standard error indicates the reliability of a statistic. It is easier to think of a standard error(SE) as the <strong>standard deviation of a statistic</strong>. Here, we demonstrate the distinction using the sample mean of a normal distribution. For a sample mean, SE is denoted as <span class="math display">\[\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{\hat{\sigma}}{\sqrt{n}}\]</span> Do you recall why we need to replace <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(\hat{\sigma}\)</span>?</p>
 <p>The following R code helps demonstrate the differences.</p>
 <div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#different sample sizes</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
@@ -305,6 +319,7 @@ window.Quarto = {
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"SE"</span> <span class="ot">=</span> <span class="st">"blue"</span>,<span class="st">"SSD"</span> <span class="ot">=</span> <span class="st">"red"</span>,<span class="st">"SD"</span> <span class="ot">=</span> <span class="st">"black"</span>))<span class="sc">+</span></span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">2</span>, <span class="fu">max</span>(n)) <span class="sc">+</span></span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"SD/SSD/SE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
