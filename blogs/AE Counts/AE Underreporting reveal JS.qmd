@@ -314,7 +314,7 @@ This graph represents the empirical posterior predictive cumulative distribution
 
 # Other MCMC Checks
 
-In the following steps we offer other due diligence check for convergence of the MCMC algorithm
+In the following steps we offer other due diligence checks for convergence of the MCMC algorithm
 ```{r, fig.dim=c(7, 8)}
 #| fig-cap: "Gelman plot"
 gelman.plot(samples[, c("mu",
