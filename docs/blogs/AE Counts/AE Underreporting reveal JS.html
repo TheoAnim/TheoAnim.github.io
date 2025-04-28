@@ -278,7 +278,7 @@ window.Quarto = {
 </section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
-<p>The primary objective is to develop a robust method to assess the risk of AE underreporting from study sites<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span>. Specifically, we use Bayesian hierarchical model to infer site reporting rates and the risk of underreporting. Bayesian models relies on the application of Bayes theorem: <span class="math display">\[p(\boldsymbol{\theta}| \mathbf{x}) \propto l(\mathbf{x}\boldsymbol|{\theta})(\boldsymbol{\theta})\]</span></p>
+<p>The primary objective is to develop a robust method to assess the risk of AE underreporting from study sites<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span>. Specifically, we use Bayesian hierarchical model to infer site reporting rates and the risk of underreporting. Bayesian models relies on the application of Bayes theorem: <span class="math display">\[p(\boldsymbol{\theta}| \mathbf{x}) \propto l(\mathbf{x}\boldsymbol|{\theta})p(\boldsymbol{\theta})\]</span></p>
 <p>That is, we model the posterior as proportional to the likelihood and the prior distribution on <span class="math inline">\(\boldsymbol{\theta}\)</span>. We usually think of the posterior distribution as an update of the prior after incorporating the observed data. In the case of count data, the likelihood can be derived using a poisson or negative binomial distribution. Unlike a poisson process where the mean and variance are equal, a negative binomial allows for over-dispersion. The Bayesian approach is an improvement on machine learning approach for modeling adverse events underreporting.<span class="citation" data-cites="menard2019enabling"><sup>[<a href="#ref-menard2019enabling" role="doc-biblioref">3</a>]</sup></span></p>
 </section>
 <section id="data-description" class="level1">
@@ -596,53 +596,53 @@ Figure&nbsp;1: Graphical representation of the adverse event reporting model
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">mu</td>
-<td style="text-align: right;">14.920735</td>
-<td style="text-align: right;">1.0286098</td>
-<td style="text-align: right;">13.035586</td>
-<td style="text-align: right;">14.877861</td>
-<td style="text-align: right;">17.097989</td>
+<td style="text-align: right;">14.876912</td>
+<td style="text-align: right;">1.0247678</td>
+<td style="text-align: right;">12.984469</td>
+<td style="text-align: right;">14.827125</td>
+<td style="text-align: right;">16.993622</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3824</td>
+<td style="text-align: right;">3904</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sigma</td>
-<td style="text-align: right;">11.170121</td>
-<td style="text-align: right;">1.0650001</td>
-<td style="text-align: right;">9.310969</td>
-<td style="text-align: right;">11.089841</td>
-<td style="text-align: right;">13.497666</td>
+<td style="text-align: right;">11.140408</td>
+<td style="text-align: right;">1.0573011</td>
+<td style="text-align: right;">9.288443</td>
+<td style="text-align: right;">11.059268</td>
+<td style="text-align: right;">13.419947</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3557</td>
+<td style="text-align: right;">3751</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rates[1]</td>
-<td style="text-align: right;">3.207421</td>
-<td style="text-align: right;">1.2346538</td>
-<td style="text-align: right;">1.247355</td>
-<td style="text-align: right;">3.062353</td>
-<td style="text-align: right;">6.008819</td>
+<td style="text-align: right;">3.219321</td>
+<td style="text-align: right;">1.2394991</td>
+<td style="text-align: right;">1.253502</td>
+<td style="text-align: right;">3.068727</td>
+<td style="text-align: right;">6.054219</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">24397</td>
+<td style="text-align: right;">23024</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rates[2]</td>
-<td style="text-align: right;">3.050920</td>
-<td style="text-align: right;">0.6119854</td>
-<td style="text-align: right;">1.975422</td>
-<td style="text-align: right;">3.009883</td>
-<td style="text-align: right;">4.349681</td>
+<td style="text-align: right;">3.052471</td>
+<td style="text-align: right;">0.6145962</td>
+<td style="text-align: right;">1.979198</td>
+<td style="text-align: right;">3.015171</td>
+<td style="text-align: right;">4.387605</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">23798</td>
+<td style="text-align: right;">23681</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rates[3]</td>
-<td style="text-align: right;">6.024035</td>
-<td style="text-align: right;">1.6903317</td>
-<td style="text-align: right;">3.181650</td>
-<td style="text-align: right;">5.862378</td>
-<td style="text-align: right;">9.758963</td>
+<td style="text-align: right;">6.028422</td>
+<td style="text-align: right;">1.6794633</td>
+<td style="text-align: right;">3.178358</td>
+<td style="text-align: right;">5.877481</td>
+<td style="text-align: right;">9.724671</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">24247</td>
+<td style="text-align: right;">24000</td>
 </tr>
 </tbody>
 </table>
@@ -680,58 +680,58 @@ Figure&nbsp;1: Graphical representation of the adverse event reporting model
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">3030</td>
-<td style="text-align: right;">0.4782139</td>
-<td style="text-align: right;">0.2184021</td>
-<td style="text-align: right;">0.0040833</td>
+<td style="text-align: right;">0.4756115</td>
+<td style="text-align: right;">0.2172633</td>
+<td style="text-align: right;">0.0052500</td>
 <td style="text-align: left;">(0,1,2)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3036</td>
-<td style="text-align: right;">0.9252746</td>
-<td style="text-align: right;">0.4766602</td>
-<td style="text-align: right;">0.0131250</td>
+<td style="text-align: right;">0.9232421</td>
+<td style="text-align: right;">0.4727202</td>
+<td style="text-align: right;">0.0140000</td>
 <td style="text-align: left;">(0,1)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3037</td>
-<td style="text-align: right;">1.3290269</td>
-<td style="text-align: right;">0.5088118</td>
-<td style="text-align: right;">0.0225417</td>
+<td style="text-align: right;">1.3237253</td>
+<td style="text-align: right;">0.5110864</td>
+<td style="text-align: right;">0.0231250</td>
 <td style="text-align: left;">(1,0,3)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3046</td>
-<td style="text-align: right;">1.6081075</td>
-<td style="text-align: right;">1.2153123</td>
-<td style="text-align: right;">0.0343333</td>
+<td style="text-align: right;">1.6069683</td>
+<td style="text-align: right;">1.2162376</td>
+<td style="text-align: right;">0.0376667</td>
 <td style="text-align: left;">(0)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">3035</td>
-<td style="text-align: right;">2.2651818</td>
-<td style="text-align: right;">1.0387725</td>
-<td style="text-align: right;">0.0532083</td>
-<td style="text-align: left;">(0,3)</td>
+<td style="text-align: right;">3032</td>
+<td style="text-align: right;">2.2696377</td>
+<td style="text-align: right;">1.0467513</td>
+<td style="text-align: right;">0.0571250</td>
+<td style="text-align: left;">(3,0)</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">3032</td>
-<td style="text-align: right;">2.2648224</td>
-<td style="text-align: right;">1.0356649</td>
-<td style="text-align: right;">0.0536667</td>
-<td style="text-align: left;">(3,0)</td>
+<td style="text-align: right;">3035</td>
+<td style="text-align: right;">2.2609088</td>
+<td style="text-align: right;">1.0293412</td>
+<td style="text-align: right;">0.0577500</td>
+<td style="text-align: left;">(0,3)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3018</td>
-<td style="text-align: right;">2.6216554</td>
-<td style="text-align: right;">0.7929520</td>
-<td style="text-align: right;">0.0649167</td>
+<td style="text-align: right;">2.6216425</td>
+<td style="text-align: right;">0.8027912</td>
+<td style="text-align: right;">0.0656667</td>
 <td style="text-align: left;">(6,1,2,0)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3039</td>
-<td style="text-align: right;">2.7349991</td>
-<td style="text-align: right;">1.1426613</td>
-<td style="text-align: right;">0.0707500</td>
+<td style="text-align: right;">2.7370660</td>
+<td style="text-align: right;">1.1402745</td>
+<td style="text-align: right;">0.0744167</td>
 <td style="text-align: left;">(3,1)</td>
 </tr>
 </tbody>

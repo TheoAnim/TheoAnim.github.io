@@ -42,8 +42,6 @@ library(kableExtra)
 library(MCMCvis)
 ```
 
-
-
 # Introduction
 
 Count data underreporting is prevalent in many fields and clinical trial is no exception. According to Seruga et. al (2016) substantial evidence shows clinicians underreport harm in clinical trial. Underreporting can be in the form of non-representative of patient's experience by clinicians or inaccurate reporting of detected adverse events.[@seruga2016under] underreporting poses risk to patient safety and data integrity.[@barmaz2021bayesian] Efforts have been made to model adverse events underreporting using Machine Learning framework[@menard2019enabling] and Bayesian Methods.[@barmaz2021bayesian] Traditional site inspection for clinical trial is not feasible in the case of multiple sites. Modeling adverse safeguard patients' safety.  Data driven approach like we present here reduce the need for onsite visits and manual quality assurance activities.  
@@ -53,7 +51,7 @@ This blog post is based on the original works of [Yves Barmas and Menard Timothe
 # Methodology 
 
 The primary objective is to develop a robust method to assess the risk of AE underreporting from study sites[@barmaz2021bayesian]. Specifically, we use Bayesian hierarchical model to infer site reporting rates and the risk of underreporting. Bayesian models relies on the application of Bayes theorem:
-$$p(\boldsymbol{\theta}| \mathbf{x}) \propto l(\mathbf{x}\boldsymbol|{\theta})(\boldsymbol{\theta})$$
+$$p(\boldsymbol{\theta}| \mathbf{x}) \propto l(\mathbf{x}\boldsymbol|{\theta})p(\boldsymbol{\theta})$$
 
 That is, we model the posterior as proportional to the likelihood and the prior distribution on $\boldsymbol{\theta}$. We usually think of the posterior distribution as an update of the prior after incorporating the observed data. In the case of count data, the likelihood can be derived using a poisson or negative binomial distribution. Unlike a poisson process where the mean and variance are equal, a negative binomial allows for over-dispersion. The Bayesian approach is an improvement on machine learning approach for modeling adverse events underreporting.[@menard2019enabling]
 
