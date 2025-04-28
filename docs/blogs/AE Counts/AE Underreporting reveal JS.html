@@ -273,17 +273,17 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Count data underreporting is prevalent in many fields and clinical trial is no exception. According to Seruga et. al (2016) substantial evidence shows clinicians underreport harm in clinical trial. underreporting can be in the form of non-representative of patient’s experience by clinicians or inaccurate reporting of detected adverse events<span class="citation" data-cites="seruga2016under"><sup>[<a href="#ref-seruga2016under" role="doc-biblioref">1</a>]</sup></span>. underreporting poses risk to patient safety and data integrity<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span>. Efforts have been made to model adverse events underreporting using Machine Learning framework<span class="citation" data-cites="menard2019enabling"><sup>[<a href="#ref-menard2019enabling" role="doc-biblioref">3</a>]</sup></span> and Bayesian Methods<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span>. Traditional site inspection for clinical trial is not feasible in the case of multiple sites. Modeling adverse safeguard patients’ safety. Data driven approach like we present here reduce the need for onsite visits and manual quality assurance activities.</p>
+<p>Count data underreporting is prevalent in many fields and clinical trial is no exception. According to Seruga et. al (2016) substantial evidence shows clinicians underreport harm in clinical trial. Underreporting can be in the form of non-representative of patient’s experience by clinicians or inaccurate reporting of detected adverse events.<span class="citation" data-cites="seruga2016under"><sup>[<a href="#ref-seruga2016under" role="doc-biblioref">1</a>]</sup></span> underreporting poses risk to patient safety and data integrity.<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span> Efforts have been made to model adverse events underreporting using Machine Learning framework<span class="citation" data-cites="menard2019enabling"><sup>[<a href="#ref-menard2019enabling" role="doc-biblioref">3</a>]</sup></span> and Bayesian Methods.<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span> Traditional site inspection for clinical trial is not feasible in the case of multiple sites. Modeling adverse safeguard patients’ safety. Data driven approach like we present here reduce the need for onsite visits and manual quality assurance activities.</p>
 <p>This blog post is based on the original works of <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8278191/">Yves Barmas and Menard Timothe</a> and it is intended to provide a tutorial on how to model adverse events under Bayesian framework. The implementation in this blog is done in R.</p>
 </section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
 <p>The primary objective is to develop a robust method to assess the risk of AE underreporting from study sites<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span>. Specifically, we use Bayesian hierarchical model to infer site reporting rates and the risk of underreporting. Bayesian models relies on the application of Bayes theorem: <span class="math display">\[p(\boldsymbol{\theta}| \mathbf{x}) \propto l(\mathbf{x}\boldsymbol|{\theta})(\boldsymbol{\theta})\]</span></p>
-<p>That is, we model the posterior as proportional to the likelihood and the prior distribution on <span class="math inline">\(\boldsymbol{\theta}\)</span>. We usually think of the posterior distribution as an update of the prior after incorporating the observed data. In the case of count data, the likelihood can be derived using a poisson or negative binomial distribution. Unlike a poisson process where the mean and variance are equal, a negative binomial allows for over-dispersion. The Bayesian approach is an improvement on machine learning approach for modeling adverse events underreporting<span class="citation" data-cites="menard2019enabling"><sup>[<a href="#ref-menard2019enabling" role="doc-biblioref">3</a>]</sup></span>.</p>
+<p>That is, we model the posterior as proportional to the likelihood and the prior distribution on <span class="math inline">\(\boldsymbol{\theta}\)</span>. We usually think of the posterior distribution as an update of the prior after incorporating the observed data. In the case of count data, the likelihood can be derived using a poisson or negative binomial distribution. Unlike a poisson process where the mean and variance are equal, a negative binomial allows for over-dispersion. The Bayesian approach is an improvement on machine learning approach for modeling adverse events underreporting.<span class="citation" data-cites="menard2019enabling"><sup>[<a href="#ref-menard2019enabling" role="doc-biblioref">3</a>]</sup></span></p>
 </section>
 <section id="data-description" class="level1">
 <h1>Data Description</h1>
-<p>The data originates from the control arm of a Phase III, Randomized Double-Blind placebo-controlled study to access the efficacy and safety of 10mg Zibotetntan with Docetaxel in Metastics Hormone resistant Prostate Cancer<span class="citation" data-cites="fizazi2013phase"><sup>[<a href="#ref-fizazi2013phase" role="doc-biblioref">4</a>]</sup></span>. The primary endpoint of the study was to compare overall survival of Zibotentan combined with docetaxel to docetaxel. The data can be found <a href="https://github.com/ybarmaz/bayesian-ae-reporting/blob/main/data.csv">here</a>.</p>
+<p>The data originates from the control arm of a Phase III, Randomized Double-Blind placebo-controlled study to access the efficacy and safety of 10mg Zibotetntan with Docetaxel in Metastics Hormone resistant Prostate Cancer.<span class="citation" data-cites="fizazi2013phase"><sup>[<a href="#ref-fizazi2013phase" role="doc-biblioref">4</a>]</sup></span> The primary endpoint of the study was to compare overall survival of Zibotentan combined with docetaxel to docetaxel. The data can be found <a href="https://github.com/ybarmaz/bayesian-ae-reporting/blob/main/data.csv">here</a>.</p>
 <p>The data includes study, site number, patient random identifier and adverse event count. There are 125 unique sites and 468 patients whose adverse event counts are recorded.</p>
 <div class="cell">
 <details class="code-fold">
@@ -383,7 +383,7 @@ window.Quarto = {
 </section>
 <section id="poisson-hierarchical-model" class="level1">
 <h1>Poisson hierarchical model</h1>
-<p>The number of adverse event for a patient from the <span class="math inline">\(i^{th}\)</span> site is modeled as Poisson hierarchy<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span>. <span class="math display">\[Y_{1}, Y_{2}, \dots, Y_{n_i} \sim Poisson(\lambda_{i})\]</span> <span class="math inline">\(n_{i}\)</span> denotes the number of patients at a specific site</p>
+<p>The number of adverse event for a patient from the <span class="math inline">\(i^{th}\)</span> site is modeled as Poisson hierarchy.<span class="citation" data-cites="barmaz2021bayesian"><sup>[<a href="#ref-barmaz2021bayesian" role="doc-biblioref">2</a>]</sup></span> <span class="math display">\[Y_{1}, Y_{2}, \dots, Y_{n_i} \sim Poisson(\lambda_{i})\]</span> <span class="math inline">\(n_{i}\)</span> denotes the number of patients at a specific site</p>
 <p><span class="math inline">\(\lambda_{i}, i = 1, 2, \dots, N_{sites}\)</span> is drawn from a single study level gamma distribution, <span class="math inline">\(\Gamma(\mu_{study}, \sigma_{study})\)</span> with <span class="math inline">\(exp(0.1)\)</span> as vague hyperpriors on mean and standard deviation. This reparametrization gives a more direct interpretation of the posterior of <span class="math inline">\(\mu\)</span> as the average reporting rate across sites and <span class="math inline">\(\sigma\)</span> as the measure of variability in the reporting rate across sites.</p>
 <p>The data is well represented in Figure 1.</p>
 <div class="cell">
@@ -596,53 +596,53 @@ Figure&nbsp;1: Graphical representation of the adverse event reporting model
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">mu</td>
-<td style="text-align: right;">14.878663</td>
-<td style="text-align: right;">1.0132650</td>
-<td style="text-align: right;">12.995220</td>
-<td style="text-align: right;">14.840192</td>
-<td style="text-align: right;">16.992709</td>
+<td style="text-align: right;">14.920735</td>
+<td style="text-align: right;">1.0286098</td>
+<td style="text-align: right;">13.035586</td>
+<td style="text-align: right;">14.877861</td>
+<td style="text-align: right;">17.097989</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">4120</td>
+<td style="text-align: right;">3824</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sigma</td>
-<td style="text-align: right;">11.136418</td>
-<td style="text-align: right;">1.0404118</td>
-<td style="text-align: right;">9.277970</td>
-<td style="text-align: right;">11.072272</td>
-<td style="text-align: right;">13.381192</td>
+<td style="text-align: right;">11.170121</td>
+<td style="text-align: right;">1.0650001</td>
+<td style="text-align: right;">9.310969</td>
+<td style="text-align: right;">11.089841</td>
+<td style="text-align: right;">13.497666</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3997</td>
+<td style="text-align: right;">3557</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rates[1]</td>
-<td style="text-align: right;">3.203474</td>
-<td style="text-align: right;">1.2307803</td>
-<td style="text-align: right;">1.259407</td>
-<td style="text-align: right;">3.050051</td>
-<td style="text-align: right;">5.999374</td>
+<td style="text-align: right;">3.207421</td>
+<td style="text-align: right;">1.2346538</td>
+<td style="text-align: right;">1.247355</td>
+<td style="text-align: right;">3.062353</td>
+<td style="text-align: right;">6.008819</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">24000</td>
+<td style="text-align: right;">24397</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rates[2]</td>
-<td style="text-align: right;">3.055116</td>
-<td style="text-align: right;">0.6129103</td>
-<td style="text-align: right;">1.962591</td>
-<td style="text-align: right;">3.017054</td>
-<td style="text-align: right;">4.366079</td>
+<td style="text-align: right;">3.050920</td>
+<td style="text-align: right;">0.6119854</td>
+<td style="text-align: right;">1.975422</td>
+<td style="text-align: right;">3.009883</td>
+<td style="text-align: right;">4.349681</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">24290</td>
+<td style="text-align: right;">23798</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rates[3]</td>
-<td style="text-align: right;">6.034691</td>
-<td style="text-align: right;">1.6981183</td>
-<td style="text-align: right;">3.183736</td>
-<td style="text-align: right;">5.882964</td>
-<td style="text-align: right;">9.824357</td>
+<td style="text-align: right;">6.024035</td>
+<td style="text-align: right;">1.6903317</td>
+<td style="text-align: right;">3.181650</td>
+<td style="text-align: right;">5.862378</td>
+<td style="text-align: right;">9.758963</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">24000</td>
+<td style="text-align: right;">24247</td>
 </tr>
 </tbody>
 </table>
@@ -680,58 +680,58 @@ Figure&nbsp;1: Graphical representation of the adverse event reporting model
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">3030</td>
-<td style="text-align: right;">0.4752721</td>
-<td style="text-align: right;">0.2170050</td>
-<td style="text-align: right;">0.0042500</td>
+<td style="text-align: right;">0.4782139</td>
+<td style="text-align: right;">0.2184021</td>
+<td style="text-align: right;">0.0040833</td>
 <td style="text-align: left;">(0,1,2)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3036</td>
-<td style="text-align: right;">0.9262172</td>
-<td style="text-align: right;">0.4747870</td>
-<td style="text-align: right;">0.0135417</td>
+<td style="text-align: right;">0.9252746</td>
+<td style="text-align: right;">0.4766602</td>
+<td style="text-align: right;">0.0131250</td>
 <td style="text-align: left;">(0,1)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3037</td>
-<td style="text-align: right;">1.3267179</td>
-<td style="text-align: right;">0.5122795</td>
-<td style="text-align: right;">0.0227500</td>
+<td style="text-align: right;">1.3290269</td>
+<td style="text-align: right;">0.5088118</td>
+<td style="text-align: right;">0.0225417</td>
 <td style="text-align: left;">(1,0,3)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3046</td>
-<td style="text-align: right;">1.6009174</td>
-<td style="text-align: right;">1.2152893</td>
-<td style="text-align: right;">0.0350000</td>
+<td style="text-align: right;">1.6081075</td>
+<td style="text-align: right;">1.2153123</td>
+<td style="text-align: right;">0.0343333</td>
 <td style="text-align: left;">(0)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">3032</td>
-<td style="text-align: right;">2.2637225</td>
-<td style="text-align: right;">1.0275527</td>
-<td style="text-align: right;">0.0537083</td>
-<td style="text-align: left;">(3,0)</td>
+<td style="text-align: right;">3035</td>
+<td style="text-align: right;">2.2651818</td>
+<td style="text-align: right;">1.0387725</td>
+<td style="text-align: right;">0.0532083</td>
+<td style="text-align: left;">(0,3)</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">3035</td>
-<td style="text-align: right;">2.2697561</td>
-<td style="text-align: right;">1.0365632</td>
-<td style="text-align: right;">0.0547917</td>
-<td style="text-align: left;">(0,3)</td>
+<td style="text-align: right;">3032</td>
+<td style="text-align: right;">2.2648224</td>
+<td style="text-align: right;">1.0356649</td>
+<td style="text-align: right;">0.0536667</td>
+<td style="text-align: left;">(3,0)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3018</td>
-<td style="text-align: right;">2.6182872</td>
-<td style="text-align: right;">0.7986012</td>
-<td style="text-align: right;">0.0642917</td>
+<td style="text-align: right;">2.6216554</td>
+<td style="text-align: right;">0.7929520</td>
+<td style="text-align: right;">0.0649167</td>
 <td style="text-align: left;">(6,1,2,0)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3039</td>
-<td style="text-align: right;">2.7382029</td>
-<td style="text-align: right;">1.1425362</td>
-<td style="text-align: right;">0.0715000</td>
+<td style="text-align: right;">2.7349991</td>
+<td style="text-align: right;">1.1426613</td>
+<td style="text-align: right;">0.0707500</td>
 <td style="text-align: left;">(3,1)</td>
 </tr>
 </tbody>
