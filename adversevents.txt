@@ -1,0 +1,26 @@
+
+model{
+  for(i in 1:N){
+    y[i] ~ dpois(rates[site_idx[i]])
+  }
+  
+  ##### prior
+  for(j in 1:J){
+       rates[j] ~ dgamma(shape, rate)
+  }
+  
+  ###Hyperpriors on rate################
+  mu ~ dexp(0.1)
+  sigma ~ dexp(0.1)
+  
+  #transformation to shape and rate of gamma
+  rate <- mu/sigma^2
+  shape <- mu^2/sigma^2
+  
+  ####a random rate is less than site's rate
+  reference_rate ~ dgamma(shape, rate)
+  for(j in 1:J){
+     underreporting[j] <- reference_rate < rates[j]
+  }
+}
+

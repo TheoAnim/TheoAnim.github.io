@@ -214,8 +214,9 @@ tibble(prior_predictive = sample_prior_pred) |>
   group_by(prior_predictive) |>
   summarise(frequency = n()) |>
   ggplot(aes(x = as.factor(prior_predictive), y = frequency)) +
-  geom_col(fill = "tan", color = "black")+
-  labs(x = "prior predictive distribution")
+  geom_col(fill = "tan", color = "black") +
+  labs(x = "prior predictive distribution") +
+  guides(x = guide_axis(check.overlap = TRUE))
 ```
 
 To quantify the risk of underreporting, we compute a left tail area probability defined as
