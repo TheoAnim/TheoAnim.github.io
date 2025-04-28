@@ -19,5 +19,17 @@
   },
   "blogs/Standard error/Standard Deviation, Sample Standard Deviation and Standard Error.qmd": {
     "Standard Deviation, Sample Standard Deviation and Standard Error.html": "17e1d9ff"
+  },
+  "blogs/AE Counts/AE.qmd": {
+    "AE.html": "f145e9f2"
+  },
+  "blogs/AE-Underreporting-reveal-JS/AE Underreporting reveal JS.qmd": {
+    "AE Underreporting reveal JS.html": "160f6b57"
+  },
+  "blogs/AE Counts/AE Underreporting reveal JS.qmd": {
+    "AE Underreporting reveal JS.html": "b7065ec7"
+  },
+  "blogs/AE Counts/index.qmd": {
+    "index.html": "f65a5678"
   }
 }

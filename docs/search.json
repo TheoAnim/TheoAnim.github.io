@@ -21,10 +21,24 @@
     "text": "Education\nPhD Statistical Science, Baylor University, (2023 - 2027)\nM.S Statistics, Baylor University, Spring 2025 (Expected)\nM.S Mathematics-Statistics, South Dakota State University, May, 2023\nBachelor of Education(Mathematics) - University of Cape Coast, 2020\n\n\nWork Experience\n\nGraduate Assistant at Statistical Consulting Center, June 2024 - Present\nGraduate Teaching Assistant at Department of Mathematics & Statistics, SDSU, August 2021 - May 2023\nMIS Analytics Intern at Premier BankCard, Sioux Falls,, June 2022 - August 2022\nTeaching Assistant at Department of Mathematics, University of Cape Coast, August 2020 - August 2021\n\n\n\nResearch Interest\n\nBayesian Statistics\nStatistical Genomics and Bioinformatics\nMachine Learning\n\n\n\nSkills\nHere are technologies I have used in the course of my education and professional development:\n\n\n\nR/RStudio(R markdown & Quarto)\nPython\nSQL\n\n\n\nGit/Github\nDocker\nPowerBI"
   },
   {
+    "objectID": "blogs/AE Counts/AE Underreporting reveal JS.html",
+    "href": "blogs/AE Counts/AE Underreporting reveal JS.html",
+    "title": "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials",
+    "section": "",
+    "text": "Code\n################libraries################\nlibrary(tidyverse)\nlibrary(rjags)\nlibrary(bayesplot)\nlibrary(kableExtra)\nlibrary(MCMCvis)"
+  },
+  {
+    "objectID": "blogs/AE Counts/AE Underreporting reveal JS.html#disclaimer",
+    "href": "blogs/AE Counts/AE Underreporting reveal JS.html#disclaimer",
+    "title": "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\nThis post was born out of a requirement to reproduce and present a published article in our Bayesian Theory class.\nA special thank you to Barmaz Y and Ménard T for the permission to reproduce their paper."
+  },
+  {
     "objectID": "blogs.html",
     "href": "blogs.html",
     "title": "Blog",
     "section": "",
-    "text": "Standard Deviation and Standard Error\n\n\n\n\n\n\nPopulation\n\n\nSample\n\n\nStandard Deviation\n\n\nStandard Error\n\n\nParameter\n\n\n\n\n\n\n\n\n\nMar 11, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\nNo matching items"
+    "text": "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\n\n\n\n\n\n\nStandard Deviation and Standard Error\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\nNo matching items"
   }
 ]
