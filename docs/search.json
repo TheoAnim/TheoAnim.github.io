@@ -23,14 +23,14 @@
   {
     "objectID": "blogs/AE Counts/AE Underreporting reveal JS.html",
     "href": "blogs/AE Counts/AE Underreporting reveal JS.html",
-    "title": "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials",
+    "title": "Bayesian Modeling for the Detection of Adverse Events Underreporting in Clinical Trials",
     "section": "",
     "text": "Code\n################libraries################\nlibrary(tidyverse)\nlibrary(rjags)\nlibrary(bayesplot)\nlibrary(kableExtra)\nlibrary(MCMCvis)"
   },
   {
     "objectID": "blogs/AE Counts/AE Underreporting reveal JS.html#disclaimer",
     "href": "blogs/AE Counts/AE Underreporting reveal JS.html#disclaimer",
-    "title": "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials",
+    "title": "Bayesian Modeling for the Detection of Adverse Events Underreporting in Clinical Trials",
     "section": "Disclaimer",
     "text": "Disclaimer\n\nThis post was born out of a requirement to reproduce and present a published article in our Bayesian Theory class.\nA special thank you to Barmaz Y and Ménard T for the permission to reproduce their paper."
   },
@@ -39,6 +39,6 @@
     "href": "blogs.html",
     "title": "Blog",
     "section": "",
-    "text": "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\n\n\n\n\n\n\nStandard Deviation and Standard Error\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\nNo matching items"
+    "text": "Bayesian Modeling for the Detection of Adverse Events Underreporting in Clinical Trials\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\n\n\n\n\n\n\nStandard Deviation and Standard Error\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2025\n\n\nTheophilus Anim Bediako\n\n\n\n\n\n\nNo matching items"
   }
 ]

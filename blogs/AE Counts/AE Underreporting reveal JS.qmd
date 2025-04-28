@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Modeling for the Detection ofAdverse Events Underreporting in Clinical Trials"
+title: "Bayesian Modeling for the Detection of Adverse Events Underreporting in Clinical Trials"
 format: 
   html:
     toc: true
