@@ -61,7 +61,7 @@ That is, we model the posterior as proportional to the likelihood and the prior 
 
 The data originates from the control arm of a Phase III, Randomized Double-Blind placebo-controlled study to access the efficacy and safety of 10mg Zibotetntan with Docetaxel in Metastics Hormone resistant Prostate Cancer.[@fizazi2013phase] The primary endpoint of the study was to compare overall survival of Zibotentan combined with docetaxel to docetaxel. The data can be found [here](https://github.com/ybarmaz/bayesian-ae-reporting/blob/main/data.csv).
 
-The data includes study, site number, patient random identifier and adverse event count. There are 125 unique sites and 468 patients whose adverse event counts are recorded.
+The data includes site number, patient random identifier and adverse event count. There are 125 unique sites and 468 patients whose adverse event counts are recorded.
 
 ```{r, echo=FALSE}
 df <- read_csv("K:/My Drive/GoodNotes/Spring 2025/Bayesian Theory/Project/data.csv",
@@ -72,9 +72,9 @@ df <- read_csv("K:/My Drive/GoodNotes/Spring 2025/Bayesian Theory/Project/data.c
 inputdf <- df |> 
   select(site_number, patnum, ae_count_cumulative) |>
   group_by(site_number) |>
-  summarise(aes_count = str_c("(", str_c(unique(
+  summarise(aes_count = str_c("(", str_c((
     ae_count_cumulative
-  ), collapse = ","), ")"),
+  ), collapse = ", "), ")"),
   Number_of_patients = n_distinct(patnum))
 
 inputdf |>
@@ -278,7 +278,7 @@ The MCMC diagnostics reveal no issues so we can go ahead with inference. Notice 
 
 ```{r}
 output <- MCMCsummary(samples, params = c("mu", "sigma", "rates"))
-head(output, 5) |> kable(caption = "Posterior summaries")
+head(output, 5) |> kable(caption = "Posterior summaries", digits = 3)
 ```
 
 The table above presents the posterior summaries of the study mean, study standard deviation and reporting rates. Also included are the 95% credible interval, median, Gelman Rubin statistic and the effective sample size. Larger values of SD suggests uncertainty about the estimate.
@@ -292,10 +292,10 @@ rta_summary <- tibble(
   rate_tail_area = rate_tail_area$mean,
   aes_count = inputdf$aes_count
 )
-  
+
 arrange(rta_summary, rate_tail_area) |>
   head(8) |>
-  kable(caption = "Posterior summaries of AE rate and Rate tail area for each site")
+  kable(caption = "Posterior summaries of AE rate and Rate tail area for each site", digits = 3)
 ```
 
 This table shows the study sites of the top 8 lowest rate tail area. Site 3046 has a 0 reported adverse event yet the mean ae rate is thrice larger than the mean ae rate for site 3030, which can be attributed to the information sharing across study sites. The uncertainty around the estimate is quiet high compared to site 3030.
