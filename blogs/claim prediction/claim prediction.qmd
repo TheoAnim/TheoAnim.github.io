@@ -1,0 +1,357 @@
+---
+title: "Insurance Claim Prediction"
+editor: visual
+code-fold: true
+categories: [Random Forest, Bagging, Boosting, Regression Tree]
+#engine: knitr
+---
+
+```{r setup, echo=FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center",
+  comment = ""
+)
+library(kableExtra)
+library(caret)
+library(caTools)
+library(doParallel) # for parallel backend to foreach
+# library(foreach)
+# # for parallel processing with for loops
+library(randomForest)
+library(rpart)
+library(rpart.plot)
+library(gbm)
+
+# Setup parallel backend
+num_cores <- parallel::detectCores()- 1
+cl <- makeCluster(num_cores)
+registerDoParallel(cl)
+
+options(ggplot2.continuous.colour = "viridis",
+ggplot2.continuous.fill = "viridis")
+theme_set(theme_minimal())
+theme_update(panel.grid.minor = element_blank())
+
+conflicted::conflicts_prefer(dplyr::filter)
+conflicted::conflicts_prefer(corrplot::corrplot)
+set.seed(1)
+```
+
+```{css, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+
+```{r}
+load("E:/Personal Website/blogs/claim prediction/telematics.RData")
+dat_1 <- dat_1 |>
+  mutate(across(where(is.character), as.factor))
+dat_1$AMT_Claim <- scale(dat_1$AMT_Claim)
+
+```
+
+## Project Goal
+
+The main goal is how to develop a model that predicts the amount of claim(`AMT Clain`) using `telematics.RData`. For additional information regarding the data, refer to [https://www.mdpi.com/2227-9091/9/4/58](https://www.mdpi.com/2227-9091/9/4/58).
+
+
+## Exploratory Data Analysis 
+
+There are no missing values. We found 84 observations with negative car age. Negative car age does not make sense so we exclude these observations. Using the `findCorrelation()` function in R, we identify variables highly correlated($>= 0.8$) with other variables. The following variables are then excluded. We also exclude the number of claims during observations(`NB_claim`). `NB_claim` is considered as a response in the original article.
+
+```{r}
+tele_df <- dat_1 |> dplyr::filter(Car.age >= 0) |>
+  mutate(across(where(is.character), as.factor))
+
+#percentage of missing values
+naniar::pct_miss(tele_df)
+
+num_variables <- select(tele_df, where(is.numeric)) |> select(-AMT_Claim)
+cor_matrix <- cor(num_variables, use = "complete.obs")
+high_cor_vars <- findCorrelation(cor_matrix, cutoff = .8, names = TRUE)
+
+matrix(high_cor_vars,  nrow = 4, ncol = 5, byrow = TRUE) |> kableExtra::kable()
+```
+
+
+```{r}
+tele_df_clean <- select(tele_df, -any_of(c(high_cor_vars, "NB_Claim")))
+```
+
+
+My final dataset for modeling has 32 variables with 3780 observations.
+
+```{r}
+summarise(tele_df_clean,
+          across(
+            where(is.numeric),
+            .fns = list(
+              min = min,
+              median = median,
+              mean = mean,
+              stdev = sd,
+              q25 = ~ quantile(., 0.25),
+              q75 = ~ quantile(., 0.75),
+              max = max
+            ),
+            .names = "{.col}_{.fn}"
+          )) |>
+  pivot_longer(
+    cols = everything(),
+    names_to = c("variable", "stat"),
+    names_pattern = "^(.*)_(min|median|mean|stdev|q25|q75|max)$"
+  ) |>
+  pivot_wider(names_from = stat, values_from = value) |>
+  arrange(variable) |> #alphabetical order
+  kable(digits = 3, caption = "Summary statistics") |>
+  kable_styling(full_width = TRUE,
+                bootstrap_options = c("striped", "hover"))
+```
+
+
+```{r}
+tele_df_clean |>
+  select(where(is.character), where(is.factor)) |>
+  pivot_longer(cols = everything(),
+               names_to = "variable",
+               values_to = "level") |>
+  group_by(variable, level) |>
+  summarise(count = n(), .groups = "drop_last") |>
+  mutate(prop = count / sum(count)) |> ungroup() |>
+  arrange(variable, desc(count)) |>
+  kable(digits = 3, caption = "Frequency and Proportion of Categorical Variables") |>
+  kable_styling(full_width = FALSE,
+                bootstrap_options = c("striped", "hover"))
+```
+
+
+```{r}
+#| fig-cap: "Histogram of aggregated amout claimed"
+ggplot(tele_df_clean, aes(x = AMT_Claim)) +
+  geom_histogram(
+    aes(y = after_stat(density)),
+    bins = 30,
+    fill = "skyblue",
+    color = "black",
+    alpha = 0.7
+  )
+```
+
+The distribution of standardized claims is right skewed.
+
+```{r}
+split <- sample.split(tele_df_clean$AMT_Claim, SplitRatio = .8)
+train_df <- subset(tele_df_clean,split == TRUE)
+test_df <- subset(tele_df_clean, split == FALSE)
+cat("Train data sample size:", nrow(train_df))
+cat("Test data sample size:", nrow(test_df))
+
+```
+
+## Models 
+
+### Regression Tree
+```{r}
+insur_tree <- rpart(AMT_Claim ~ .,
+                    data = train_df,
+                    method = "anova",
+                    "cp" = .008)
+rpart.plot(insur_tree)
+
+insur_tree_importance <- with(insur_tree, tibble(
+  variable = names(variable.importance),
+  importance = as.numeric(variable.importance)
+)) |> arrange(desc(importance)) |> slice_head(n = 100)
+
+ggplot(insur_tree_importance, 
+       aes(x = factor(variable, levels = rev(variable)), y = importance)) +
+  geom_col(fill = "steelblue") +
+  labs(x = "variable") +
+  coord_flip()
+
+amt_claim_hat <- predict(insur_tree, newdata = test_df)
+insur_treemse <- mean((test_df$AMT_Claim - amt_claim_hat)^2)
+cat("MSE of the regression tree before pruning:",
+    insur_treemse |> round(3))
+cptable <- insur_tree$cptable
+ggplot(cptable, aes(nsplit, xerror)) +
+  geom_point() +
+  geom_line()
+
+
+```
+
+```{r}
+#prune the trees
+ins_bestcp <- cptable[which.min(cptable[, "xerror"]), "CP"]
+insur_pruntree <- prune(insur_tree, cp = ins_bestcp)
+
+rpart.plot(insur_pruntree)
+
+with(insur_pruntree,
+     tibble(
+       variable = names(variable.importance),
+       importance = as.numeric(variable.importance)
+     )) |>
+  ggplot(aes(x = factor(variable, levels = rev(variable)), y = importance)) +
+  geom_col(fill = "steelblue") +
+  labs(x = "variable") +
+  coord_flip()
+
+#after prunning prediction
+prune_amtclaim_hat <- predict(insur_pruntree, newdata = test_df)
+prune_mse <- mean((test_df$AMT_Claim - prune_amtclaim_hat)^2)
+cat("MSE after pruning:", prune_mse)
+mse_dif <- ((insur_treemse - prune_mse) / (insur_treemse)) * 100
+cat("MSE reduction:", mse_dif |> round(3))
+```
+
+
+
+### Bagging
+```{r}
+#---------------------choosing best ntrees----------------
+#| fig-cap: "Optimal number of trees for bagging"
+#---------------------trees to grow--------------------------
+
+ntree_values <- c(50, 100, 200, 300, 500)
+# # Run cross-validation in parallel
+# bagging_cverrors <- foreach(n = ntree_values,
+#                             .combine = rbind,
+#                             .packages = "caret") %dopar% {
+#                               model <- train(
+#                                 AMT_Claim ~ .,
+#                                 data = train_df,
+#                                 method = "rf",
+#                                 trControl = trainControl(method = "cv", number = 10),
+#                                 ntree = n,
+#                                 importance = TRUE
+#                               )
+# 
+# data.frame(ntree = n, RMSE = min(model$results$RMSE))
+# }
+# bagging_cverrors <- write_csv(bagging_cverrors, "bagging_cverrors")
+# bagging_cverrors <- read_csv("bagging_cverrors")
+# ggplot(bagging_cverrors, aes(ntree, RMSE))+
+# geom_point()+
+# geom_line()
+# #
+# # bagging_bestntree <- bagging_cverrors$ntree[which.min(bagging_cverrors$RMSE)]
+
+```
+
+```{r}
+# #-----------------bagging model---------------------------------
+# #---------------------------------------------------------------------
+insur_bagging <- randomForest(
+  AMT_Claim ~ .,
+  data = train_df,
+  importance = TRUE,
+  ntree = 500,
+  mtry = floor(ncol(train_df) - 1)
+)
+# varImpPlot(insur_bagging, main = "")
+
+#variable importance plot using ggplot
+importance(insur_bagging) %>% as.data.frame() %>%
+  mutate(variable = rownames(.)) %>%
+  rename(importance= `%IncMSE`) %>%
+  arrange(desc(importance)) %>%
+  ggplot(aes(x = reorder(variable, importance), y = importance))+
+  geom_bar(stat = "identity", fill = "steelblue")+
+  coord_flip()
+
+insurbag_hat <- predict(insur_bagging, newdata = test_df)
+bagging_mse <- mean((test_df$AMT_Claim- insurbag_hat)^2)
+cat("Bagging MSE:", bagging_mse)
+```
+
+
+### Boosting
+```{r}
+#---------------------------boosting ntree search--------------------------------------------
+# boosting_cv <- foreach(n = ntree_values,
+#                        .combine = rbind,
+#                        .packages = "gbm") %dopar% {
+#                          set.seed(123)
+#                          model <- gbm(
+#                            AMT_Claim ~ .,
+#                            data = train_df,
+#                            distribution = "gaussian",
+#                            n.trees = n,
+#                            shrinkage = 0.01,
+#                            interaction.depth = 1,
+#                            n.minobsinnode = 10,
+#                            cv.folds = 10,
+#                            verbose = FALSE
+#                          )
+#                          
+#                          data.frame(n_tree = n, cv_error = min(model$cv.error))
+#                        }
+# 
+# boosting_cv |>
+# ggplot(aes(n_tree, cv_error))+
+# geom_point()+
+# geom_line()
+# boosting_bestntree <- boosting_cv$n_tree[which.min(boosting_cv$cv_error)]
+insur_boosting <- gbm(
+  AMT_Claim ~ .,
+  data = train_df,
+  distribution = "gaussian",
+  n.trees = 500,
+  interaction.depth = 1
+)
+insur_boostingsummary <- summary(insur_boosting, plotit = FALSE)
+ggplot(insur_boostingsummary, aes(x = reorder(var, rel.inf), y = rel.inf)) +
+  geom_col(fill = "steelblue") +
+  coord_flip()+
+  labs(x = "Variable", y = "Relative Influence")
+#---------------------------boosting prediction--------------------------
+boost_amthat <- predict(insur_boosting, newdata = test_df)
+boosting_insurmse <- mean((test_df$AMT_Claim - boost_amthat)^2)
+cat("Boosting MSE:", boosting_insurmse)
+
+
+```
+
+### Random Forest
+```{r}
+rf_claim <- randomForest(
+  AMT_Claim ~ .,
+  data = train_df,
+  importance = TRUE,
+  mtry = floor(sqrt(ncol(train_df) - 1)),
+  ntree = 500
+)
+# 
+# varImpPlot(rf_claim, main = "")
+
+#variable importance with ggplot
+importance(rf_claim) %>% as.data.frame() %>%
+  mutate(variable = rownames(.)) %>%
+  rename(importance= `%IncMSE`) %>%
+  arrange(desc(importance)) %>%
+  ggplot(aes(x = reorder(variable, importance), y = importance))+
+  geom_bar(stat = "identity", fill = "steelblue")+
+  coord_flip()
+
+#predict on test set and compute mse
+rf_yhat <- predict(rf_claim, newdata = test_df)
+rf_mse <- mean((test_df$AMT_Claim - rf_yhat)^2)
+cat("RandomForest MSE:", rf_mse)
+
+```
+
+
+## Model Comparison
+```{r}
+tibble(
+  method = c("Pruned regression tree", "Bagging", "Boosting", "RandomForest"),
+  mse = c(prune_mse, bagging_mse, boosting_insurmse, rf_mse)
+) |>
+  kable(digits = 3, caption = "Model comparison")
+```

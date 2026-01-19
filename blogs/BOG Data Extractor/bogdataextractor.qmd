@@ -1,0 +1,143 @@
+---
+title: "GOLDBOD/BOG Trade Report Data Extractor"
+format:
+  html:
+    embed-resources: false
+execute: 
+  echo: false
+filters:
+  - shinylive
+---
+
+Recently, Ghana's GoldBod released a [report](https://goldbod.gov.gh/trade-reports/) of its trade with the Bank of Ghana. The report is a pdf document. Researchers interested in the data will have to find a way to extract the data. To solve that problem, we developed a Shiny web application specifically tailed for this report. Users simply upload the PDF and in return gets clean CSV ready to download. Here is how the interface looks like. 
+
+Note: The app only runs locally due to pdftools package functionalities not available on static website like Github Pages. You will need to download the code from the [goldbod repository](https://github.com/TheoAnim/goldbod)
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 600
+#| viewerWidth: 600
+library(shiny)
+library(pdftools)
+library(stringr)
+library(dplyr)
+library(readr)
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("GOLDBOD/BOG Trade Report Data Extractor"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      fileInput("pdf_file", "Upload BoG Trade PDF", accept = ".pdf"),
+      downloadButton("download_csv", "Download CSV")
+    ),
+    
+    mainPanel(
+      tableOutput("pdf_table")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  pdf_data <- reactive({
+    req(input$pdf_file)
+    
+    # Read text from PDF
+    pdf_text_all <- pdf_text(input$pdf_file$datapath)
+    lines <- unlist(lapply(pdf_text_all, function(p) strsplit(p, "\n")[[1]]))
+    
+    # Keep lines that look like table rows
+    table_lines <- lines[
+      str_detect(lines, "^[A-Za-z0-9]") & 
+      str_count(lines, "[0-9]{1,2}-[A-Za-z]{3}-[0-9]{2}") >= 1 &
+      str_count(lines, "[0-9]") >= 2
+    ]
+    
+    # Function to parse each table line
+    parse_line <- function(line) {
+      items <- str_split(str_squish(line), "\\s+")[[1]]
+      
+      # Detect date positions
+      date_idx <- which(str_detect(items, "^[0-9]{1,2}-[A-Za-z]{3}-[0-9]{2}$"))
+      
+      invoice <- items[1]
+      date_inflow <- if (length(date_idx) >= 1) items[date_idx[1]] else NA
+      date_supply <- if (length(date_idx) >= 2) items[date_idx[2]] else NA
+      
+      # Remove invoice + dates to isolate numeric columns
+      numeric_part <- items[-c(1, date_idx)]
+      
+      # Parse numbers: handle commas, parentheses (negative), etc.
+      numeric_clean <- sapply(numeric_part, function(x) {
+        x2 <- str_replace_all(x, ",", "")
+        x2 <- str_replace(x2, "\\(", "-")
+        x2 <- str_replace(x2, "\\)", "")
+        suppressWarnings(as.numeric(x2))
+      })
+      
+      # Map numeric columns according to your official layout
+      inflow_from_bog        <- if (length(numeric_clean) >= 1) numeric_clean[1] else NA
+      expected_amount_supply <- if (length(numeric_clean) >= 2) numeric_clean[2] else NA
+      actual_amount_supplied <- if (length(numeric_clean) >= 3) numeric_clean[3] else NA
+      actual_volume_supplied <- if (length(numeric_clean) >= 4) numeric_clean[4] else NA
+      over_under_supply      <- if (length(numeric_clean) >= 5) numeric_clean[5] else NA
+      total_charges          <- if (length(numeric_clean) >= 6) numeric_clean[6] else NA
+      
+      return(c(invoice,
+               date_inflow,
+               inflow_from_bog,
+               expected_amount_supply,
+               actual_amount_supplied,
+               actual_volume_supplied,
+               date_supply,
+               over_under_supply,
+               total_charges))
+    }
+    
+    # Parse all lines
+    table_data <- lapply(table_lines, parse_line)
+    df <- as.data.frame(do.call(rbind, table_data), stringsAsFactors = FALSE)
+    
+    # Apply column names
+    colnames(df) <- c(
+      "Invoice",
+      "Date_Inflow",
+      "Inflow_From_BOG",
+      "Expected_Amount_to_Supply",
+      "Actual_Amount_Supplied",
+      "Actual_Volume_Supplied",
+      "Date_Of_Supply",
+      "Over_Under_Supply",
+      "Total_Charges"
+    )
+    
+    # Convert dates
+    df$Date_Inflow <- as.Date(df$Date_Inflow, tryFormats = c("%d-%b-%y", "%d-%b-%Y"))
+    df$Date_Of_Supply <- as.Date(df$Date_Of_Supply, tryFormats = c("%d-%b-%y", "%d-%b-%Y"))
+    
+    # Convert numeric columns
+    num_cols <- c("Inflow_From_BOG", "Expected_Amount_to_Supply",
+                  "Actual_Amount_Supplied", "Actual_Volume_Supplied",
+                  "Over_Under_Supply", "Total_Charges")
+    df[num_cols] <- lapply(df[num_cols], as.numeric)
+    
+    df
+  })
+  
+  # Display table
+  output$pdf_table <- renderTable({
+    pdf_data()
+  })
+  
+  # CSV download
+  output$download_csv <- downloadHandler(
+    filename = function() paste0("bog_trade_report_", Sys.Date(), ".csv"),
+    content = function(file) write_csv(pdf_data(), file)
+  )
+}
+
+shinyApp(ui, server)
+
+```

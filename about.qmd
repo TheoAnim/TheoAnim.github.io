@@ -16,48 +16,32 @@ format:
 
 
 ::: {.justify}
+## Education
+PhD Statistical Science, [Baylor University, ](https://statistics.artsandsciences.baylor.edu/) \quad (2023 - 2027)\vspace{-5cm}
 
+<!-- M.S Statistics, [Baylor University, ](https://statistics.artsandsciences.baylor.edu/) \quad Spring 2025 -->
 
-# Education
+M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) Spring, 2023
 
-PhD Statistical Science, [Baylor University, ](https://statistics.artsandsciences.baylor.edu/) \quad (2023 - 2027)
-
-M.S Statistics, [Baylor University, ](https://statistics.artsandsciences.baylor.edu/) \quad Spring 2025 (Expected)
-
-M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) May, 2023
-
-Bachelor of Education(Mathematics) - [University of Cape Coast, ](https://ucc.edu.gh/) 2020
+Bachelor of Education(Mathematics), [*University of Cape Coast*, ](https://ucc.edu.gh/), Summer 2020
 :::
 
 ::: {.justify}
-# Work Experience
-
-- Graduate Assistant at [Statistical Consulting Center, ](https://statistics.artsandsciences.baylor.edu/about/visit-information) June 2024 - Present
-
-- Graduate Teaching Assistant at [Department of Mathematics & Statistics, SDSU](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization), August 2021 - May 2023
-
-- MIS Analytics Intern at [ Premier BankCard, Sioux Falls,](https://careers.firstpremier.com/), June 2022 - August 2022
-
-- Teaching Assistant at [Department of Mathematics, University of Cape Coast](https://mathematics.ucc.edu.gh/), August 2020 - August 2021
-:::
-
-::: {.justify}
-# Research Interest
-
-- Bayesian Statistics 
+## Research Interest
+- Bayesian Statistics
+- Machine learning
+- Pharmaceutical Statistics
 - Statistical Genomics and Bioinformatics
-- Machine Learning
 :::
 
 ::: {.justify}
-# Skills
+## Skills
 
 Here are technologies I have used in the course of my education and professional development:
 
-
 :::: {.columns}
 ::: {.column width="50%"}
-- R/RStudio(R markdown & Quarto)
+- R/RStudio/Positron
 - Python
 - SQL
 ::::

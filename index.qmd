@@ -27,7 +27,7 @@ about:
 
 
 ::: {.justify}
-I am a second-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I graduated with a master's degree in Mathematics-Statistics from [South Dakota State University](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) where I had the opportunity to build a strong foundation in Linear Algebra, Machine Learning(Clustering & Classification Algorithms) and Probability Theory. 
+I am a third-year PhD student in the [Department of Statistical Science](https://statistics.artsandsciences.baylor.edu/) at [Baylor University, Waco, Texas](https://www.baylor.edu/). I graduated with a master's degree in Mathematics-Statistics from [South Dakota State University](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) where I had the opportunity to build a strong foundation in Linear Algebra, Machine Learning(Clustering & Classification Algorithms) and Probability Theory. 
 
 While at SDSU and under the supervision of [Professor Semhar Michael](https://sites.google.com/view/semharmichael/home), I completed a clustering and classification project that won a Poster Presentation award at the [2023 SDSU Data Science Symposium](https://www.facebook.com/share/1DL3zMKgDD/?mibextid=wwXIfr). The same project was selected for presentation at the [2023 International Indian Statistical Association Conference](https://www.intindstat.org/conference2023/program) held on the campus of Colorado School of Mines. With this experience, I believe I am well-prepared to take on new and challenging projects in Statistics and Machine Learning.
 

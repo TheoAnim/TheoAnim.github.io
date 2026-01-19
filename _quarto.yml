@@ -12,7 +12,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: /media/TheoAnimResume.pdf
+      - href: /media/Theophilus_Anim_Bediako_Resume.pdf
         text: Resume
       - blogs.qmd
   page-footer: 

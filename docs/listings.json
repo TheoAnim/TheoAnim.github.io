@@ -2,6 +2,8 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/claim prediction/claim prediction.html",
+      "/blogs/BOG Data Extractor/bogdataextractor.html",
       "/blogs/AE Counts/AE Underreporting reveal JS.html",
       "/blogs/Standard error/Standard Deviation, Sample Standard Deviation and Standard Error.html"
     ]

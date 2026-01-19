@@ -12,7 +12,7 @@ format:
     table-caption: true
     citations: true
     citation-location: document
-    citation-style: van.csl
+    #citation-style: van.csl
 bibliography: aeref.bib 
 code-fold: true
 ---
@@ -64,8 +64,8 @@ The data originates from the control arm of a Phase III, Randomized Double-Blind
 The data includes site number, patient random identifier and adverse event count. There are 125 unique sites and 468 patients whose adverse event counts are recorded.
 
 ```{r, echo=FALSE}
-df <- read_csv("K:/My Drive/GoodNotes/Spring 2025/Bayesian Theory/Project/data.csv",
-               col_names = TRUE)
+library(readr)
+df <- read_csv("E:/Personal Website/blogs/AE Counts/data.csv")
 ```
 
 ```{r inputtable}

@@ -1,0 +1,54 @@
+% resume-macros.tex
+
+\newcommand{\TheoRSubHead}[6]{
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textit{\small#1} & \textit{\small #2}\\
+		\textit{\small#3} & \textit{\small #4}\\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & \textbf{#2} \\
+		\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingnobullet}[4]{
+	\vspace{-1pt}\item[]
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & \textbf{#2} \\
+		\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}c}
+		\textit{\small#1} & \textit{\small #2} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt]}
+	\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0pt]}
+	\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\twocolumnbullets}[2]{
+	\noindent
+	\begin{minipage}[t]{0.5\textwidth}
+		\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+			#1
+		\end{itemize}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+		\begin{itemize}[itemsep=0pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+			#2
+		\end{itemize}
+	\end{minipage}
+}
