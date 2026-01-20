@@ -39,7 +39,7 @@
     "href": "about.html#skills",
     "title": "Theo Anim",
     "section": "Skills",
-    "text": "Skills\nHere are technologies I have used in the course of my education and professional development:\n\n\n\nR/RStudio/Positron\nPython\nSQL\n\n\n\nGit/Github\nDocker\nPowerBI"
+    "text": "Skills\nHere are technologies I have used in the course of my education and professional development:\n\n\n\nR/RStudio/Positron(Tidyverse, Keras)\nPython(Pandas, Statmodels, Matplotlib, Scikit-learn)\nSQL\nSAS\n\n\n\nGit/Github\nDocker\nPowerBI"
   },
   {
     "objectID": "blogs/AE Counts/AE Underreporting reveal JS.html",

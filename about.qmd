@@ -41,9 +41,10 @@ Here are technologies I have used in the course of my education and professional
 
 :::: {.columns}
 ::: {.column width="50%"}
-- R/RStudio/Positron
-- Python
+- R/RStudio/Positron(Tidyverse, Keras)
+- Python(Pandas, Statmodels, Matplotlib, Scikit-learn)
 - SQL
+- SAS
 ::::
 ::: {.column width="50%"}
 - Git/Github
