@@ -23,13 +23,13 @@ PhD Statistical Science, [Baylor University, ](https://statistics.artsandscience
 
 M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) Spring, 2023
 
-Bachelor of Education(Mathematics), [*University of Cape Coast*, ](https://ucc.edu.gh/), Summer 2020
+Bachelor of Education(Mathematics), [*University of Cape Coast* ](https://ucc.edu.gh/), Summer 2020
 :::
 
 ::: {.justify}
 ## Research Interest
 - Bayesian Statistics
-- Machine learning
+- Machine Learning
 - Pharmaceutical Statistics
 - Statistical Genomics and Bioinformatics
 :::
@@ -44,7 +44,7 @@ Here are technologies I have used in the course of my education and professional
 - R/RStudio/Positron(Tidyverse, Keras)
 - Python(Pandas, Statmodels, Matplotlib, Scikit-learn)
 - SQL
-- SAS
+- SAS(Certified)
 ::::
 ::: {.column width="50%"}
 - Git/Github
