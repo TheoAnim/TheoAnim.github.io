@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.26)  20 JAN 2026 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.26)  20 JAN 2026 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,11 +409,11 @@ changed.
 Here is how much of TeX's memory you used:
  12291 strings out of 473899
  193052 string characters out of 5726500
- 1956960 words of memory out of 5000000
+ 1955960 words of memory out of 5000000
  35016 multiletter control sequences out of 15000+600000
  565026 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,314b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,315b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\anibe\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1095.pk><C:/Users/anibe/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontaw
 esome/FontAwesome.pfb><C:/Users/anibe/AppData/Local/Programs/MiKTeX/fonts/type1
@@ -425,7 +425,7 @@ ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/an
 ibe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 /Users/anibe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti1
 0.pfb>
-Output written on Theophilus_Anim_Bediako_Resume.pdf (1 page, 142685 bytes).
+Output written on Theophilus_Anim_Bediako_Resume.pdf (1 page, 142850 bytes).
 PDF statistics:
  86 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)
