@@ -58,4 +58,4 @@ Here are technologies I have used in the course of my education and professional
 
 [SAS Certified Specialist: Base Programming Using SAS 9.4](https://www.credly.com/badges/2554568f-507a-496c-b304-22dc6b192c43/linked_in_profile)
 
-[Databricks Fundamental Accreditation](docs/media/Databricks.pdf)
+[Databricks Fundamental Accreditation](https://credentials.databricks.com/16b5ff7b-4255-483b-b41d-9e0ccdc5e84d#acc.tfFqmdlA)
