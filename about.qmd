@@ -21,9 +21,9 @@ PhD Statistical Science, [Baylor University, ](https://statistics.artsandscience
 
 <!-- M.S Statistics, [Baylor University, ](https://statistics.artsandsciences.baylor.edu/) \quad Spring 2025 -->
 
-M.S Mathematics-Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) Spring, 2023
+M.S Mathematics \& Statistics, [South Dakota State University, ](https://www.sdstate.edu/programs/graduate/mathematics-ms-statistics-specialization) Spring, 2023
 
-Bachelor of Education(Mathematics), [*University of Cape Coast* ](https://ucc.edu.gh/), Summer 2020
+<!-- Bachelor of Education(Mathematics), [*University of Cape Coast* ](https://ucc.edu.gh/), Summer 2020 -->
 :::
 
 ::: {.justify}
@@ -42,7 +42,7 @@ Here are technologies I have used in the course of my education and professional
 :::: {.columns}
 ::: {.column width="50%"}
 - R/RStudio/Positron(Tidyverse, Keras)
-- Python(Pandas, Statmodels, Matplotlib, Scikit-learn)
+- Python(Pytorch, Statmodels, Scikit-learn)
 - SQL
 - SAS(Certified)
 ::::

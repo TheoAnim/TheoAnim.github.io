@@ -4,3 +4,5 @@
 .log
 .syntex.gz
 .aux
+
+**/*.quarto_ipynb
