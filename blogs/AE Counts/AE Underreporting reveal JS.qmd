@@ -110,12 +110,7 @@ $n_{i}$ denotes the number of patients at a specific site
 $\lambda_{i}, i = 1, 2, \dots, N_{sites}$ is drawn from a single study level gamma distribution, $\Gamma(\mu_{study}, \sigma_{study})$ with $exp(0.1)$ as vague hyperpriors on mean and standard deviation. This reparametrization gives a more direct interpretation of the posterior of $\mu$ as the average reporting rate across sites and $\sigma$ as the measure of variability in the reporting rate across sites.
 
 The data is well represented in Figure 1.
-```{tikz model, echo = FALSE}
-#| fig-cap: "Graphical representation of the adverse event reporting model"
-#| label: fig-adverse-event-model-tikza
-#| fig-width: 3
-#| fig-height: 2
-
+```{tikz model, echo = FALSE, fig.cap="Graphical representation of the adverse event reporting model", fig.width = 3, fig.height = 2}
 \usetikzlibrary{arrows.meta, shapes, positioning, fit, backgrounds}
 
 \begin{tikzpicture}[

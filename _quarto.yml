@@ -17,8 +17,8 @@ website:
       - blogs.qmd
   page-footer: 
     background: light
-    left: © 2025 Theophilus Anim Bediako
-    right: Built with [![GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){width=20 height=20}](https://github.com/TheoAnim/theoanim.github.io/){target=_blank}, [![R](https://www.r-project.org/logo/Rlogo.png){width=20 height=20}](https://www.r-project.org/about.html){target=_blank}, [![Quarto](https://quarto.org/assets/images/logo-v2.png){width=20 height=20}](https://quarto.org/){target=_blank}
+    left: © 2026 Theophilus Anim Bediako
+    right: Built with [![GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){width=20 height=20}](https://github.com/TheoAnim/theoanim.github.io/){target=_blank}, [![R](https://www.r-project.org/logo/Rlogo.png){width=20 height=20}](https://www.r-project.org/about.html){target=_blank}
 format:
   html:
     theme: zephry
